@@ -107,7 +107,7 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="image.png" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<img src="kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col col-sm-2" style="margin-top : 15px;">
 						<p>Gyeomii</p>
 						<div>
@@ -150,7 +150,7 @@
 				  <div class="input-group-text">
 				    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox">
 				  </div>
-				  <input type="text" class="form-control" aria-label="Text input with checkbox" value="(필수) 개인정보 수집, 이용동의" readonly>
+				  <div class="form-control" aria-label="Text input with checkbox">(필수) 개인정보 수집, 이용동의 <a href="#">전문보기</a></div>
 				  <button class="btn btn-outline-secondary btn-warning" type="button" id="button-addon2" style="color : white">문의 등록</button>
 				</div>
 				<br/>

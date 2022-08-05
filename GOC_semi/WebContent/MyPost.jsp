@@ -110,7 +110,7 @@ text-decoration: none;
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="image.png" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<img src="kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col col-sm-2" style="margin-top : 15px;">
 						<p>Gyeomii</p>
 						<div>
@@ -143,7 +143,7 @@ text-decoration: none;
 				  <input type="text" class="form-control" aria-label="title" placeholder="검색내용">
 				  <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
 				</div>
-				<table class="table">
+				<table class="table table-hover">
 				  <thead>
 				    <tr>
 				      <th scope="col">번호</th>

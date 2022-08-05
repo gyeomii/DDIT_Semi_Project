@@ -107,7 +107,7 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="image.png" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<img src="kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col col-sm-2" style="margin-top : 15px;">
 						<p>Gyeomii</p>
 						<div>
@@ -170,7 +170,7 @@
 						<label>Profile Picture</label>
 						<br/>
 						<div>
-							<img src="image.png" width="200" height="200" class="rounded-circle" style="border : solid">
+							<img src="kkk.jpg" width="200" height="200" class="rounded-circle" style="border : solid">
 						</div>
 					</div>
 				</div>

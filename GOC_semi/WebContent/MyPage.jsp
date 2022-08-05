@@ -107,7 +107,7 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<img src="resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col col-sm-2" style="margin-top : 15px;">
 						<p>Gyeomii</p>
 						<div>
@@ -123,7 +123,7 @@
 			   	  <a href="MyPage.jsp" class="list-group-item list-group-item-action active" aria-current="true">🙍‍♂‍profile</a>
 				  <a href="EditMemberInfo.jsp" class="list-group-item list-group-item-action">🔑회원정보수정</a>
 				  <a href="MyPost.jsp" class="list-group-item list-group-item-action">✒내가 쓴 글</a>
-				  <a href="#" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
+				  <a href="tendency.jsp" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
 				  <a href="QnA.jsp" class="list-group-item list-group-item-action ">📢1 : 1 문의하기</a>
 				</div>
 			  </div>
@@ -170,7 +170,7 @@
 						<label>Profile Picture</label>
 						<br/>
 						<div>
-							<img src="kkk.jpg" width="200" height="200" class="rounded-circle" style="border : solid">
+							<img src="resources/img/kkk.jpg" width="200" height="200" class="rounded-circle" style="border : solid">
 						</div>
 					</div>
 				</div>

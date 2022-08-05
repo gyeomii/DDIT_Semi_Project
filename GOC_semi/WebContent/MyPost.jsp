@@ -49,6 +49,9 @@
  width : 80px;
  height : 80px 
 }
+a{
+text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -122,37 +125,71 @@
 			   	 <div class="list-group">
 			   	  <a href="MyPage.jsp" class="list-group-item list-group-item-action ">🙍‍♂‍profile</a>
 				  <a href="EditMemberInfo.jsp" class="list-group-item list-group-item-action">🔑회원정보수정</a>
-				  <a href="MyPost.jsp" class="list-group-item list-group-item-action">✒내가 쓴 글</a>
+				  <a href="MyPost.jsp" class="list-group-item list-group-item-action active" aria-current="true">✒내가 쓴 글</a>
 				  <a href="#" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
-				  <a href="QnA.jsp" class="list-group-item list-group-item-action active" aria-current="true">📢1 : 1 문의하기</a>
+				  <a href="QnA.jsp" class="list-group-item list-group-item-action">📢1 : 1 문의하기</a>
 				</div>
 			  </div>
 			<div class="col col-sm-8" style="margin-top: 0">
-				<h1>1 : 1 문의하기 <small class="text-muted">Q & A</small></h1>
+				<h1>내가 쓴 글 <small class="text-muted">my post</small></h1>
 				<hr>
 				<div class="input-group mb-3">
-				  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">문의 유형</button>
+				  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">검색 조건</button>
 				  <ul class="dropdown-menu">
-				    <li><a class="dropdown-item" href="#">건의사항</a></li>
-				    <li><a class="dropdown-item" href="#">사용자 신고</a></li>
-				    <li><a class="dropdown-item" href="#">버그 제보</a></li>
-				    <li><hr class="dropdown-divider"></li>
-				    <li><a class="dropdown-item" href="#">추가사항은 DM으로 문의해주세요🙏</a></li>
+				    <li><a class="dropdown-item" href="#">제목</a></li>
+				    <li><a class="dropdown-item" href="#">내용</a></li>
+				    <li><a class="dropdown-item" href="#">제목 + 내용</a></li>
 				  </ul>
-				  <input type="text" class="form-control" aria-label="title" placeholder="제목">
+				  <input type="text" class="form-control" aria-label="title" placeholder="검색내용">
+				  <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
 				</div>
-				<div class="input-group">
-				  <span class="input-group-text">문의 내용</span>
-				  <textarea class="form-control" aria-label="content" rows="10"></textarea>
-				</div>
-				<hr>
-				<div class="input-group mb-3">
-				  <div class="input-group-text">
-				    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox">
-				  </div>
-				  <input type="text" class="form-control" aria-label="Text input with checkbox" value="(필수) 개인정보 수집, 이용동의" readonly>
-				  <button class="btn btn-outline-secondary btn-warning" type="button" id="button-addon2" style="color : white">문의 등록</button>
-				</div>
+				<table class="table">
+				  <thead>
+				    <tr>
+				      <th scope="col">번호</th>
+				      <th scope="col">제목</th>
+				      <th scope="col"></th>
+				      <th scope="col">작성일</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      <th scope="row">1</th>
+				      <td colspan="2"><a href=#>아아 배고프다</a></td>
+				      <td>2022.01.01</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">2</th>
+				      <td colspan="2"><a href=#>아아 집가고싶다</a></td>
+				      <td>2022.01.02</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">3</th>
+				      <td colspan="2"><a href=#>아아 마시고싶다</a></td>
+				      <td>2022.01.03</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">4</th>
+				      <td colspan="2"><a href=#>으아아아아아</a></td>
+				      <td>2022.01.04</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">5</th>
+				      <td colspan="2"><a href=#>오오오오오</a></td>
+				      <td>2022.01.05</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">6</th>
+				      <td colspan="2"><a href=#>우우우우ㅜ우</a></td>
+				      <td>2022.01.06</td>
+				    </tr>
+				    <tr>
+				      <th scope="row">7</th>
+				      <td colspan="2"><a href=#>야스</a></td>
+				      <td>2022.01.06</td>
+				    </tr>
+				  </tbody>
+				</table>
 				<br/>
 				<br/>
 				<br/>

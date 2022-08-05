@@ -122,7 +122,7 @@
 			   	 <div class="list-group">
 			   	  <a href="MyPage.jsp" class="list-group-item list-group-item-action active" aria-current="true">🙍‍♂‍profile</a>
 				  <a href="EditMemberInfo.jsp" class="list-group-item list-group-item-action">🔑회원정보수정</a>
-				  <a href="#" class="list-group-item list-group-item-action">✒내가 쓴 글</a>
+				  <a href="MyPost.jsp" class="list-group-item list-group-item-action">✒내가 쓴 글</a>
 				  <a href="#" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
 				  <a href="QnA.jsp" class="list-group-item list-group-item-action ">📢1 : 1 문의하기</a>
 				</div>

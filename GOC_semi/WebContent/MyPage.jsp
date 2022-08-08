@@ -49,10 +49,17 @@
  width : 80px;
  height : 80px 
 }
+#account_area{
+  margin-top : 15px
+}
+.profile-picture{
+  margin: 0;
+  text-align: center;
+}
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
          <div class="icon">
             <a class="navbar-brand" href="#"><img class="icon"
@@ -66,7 +73,7 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-               style="-bs-scroll-height: 100px;">
+               style="-bs-scroll-height: 100px; margin-left : 0">
                <li class="nav-item"><a class="nav-link active"
                   aria-current="page" href="#">공지사항</a></li>
 
@@ -83,6 +90,10 @@
                      <li><a class="dropdown-item" href="#">맛집게시판</a></li>
                   </ul></li>
             </ul>
+            <div class="icon2">
+				<a class="navbar-brand" href="#"><img class="icon2"
+					src="resources/img/궁금해.jpeg"></a>
+			</div>
             <div class="d-flex">
                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
                   style="-bs-scroll-height: 100px;">
@@ -108,7 +119,7 @@
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
 					<img src="resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
-					<div class="col col-sm-2" style="margin-top : 15px;">
+					<div class="col-sm-2" id="account_area">
 						<p>Gyeomii</p>
 						<div>
 							<p><small>Your personal account</small></p>
@@ -127,7 +138,7 @@
 				  <a href="QnA.jsp" class="list-group-item list-group-item-action ">📢1 : 1 문의하기</a>
 				</div>
 			  </div>
-			<div class="col col-sm-6" style="margin-top: 0">
+			<div class="col-sm-7" style="margin-top: 0">
 				<h1>Public Profile <small class="text-muted">회원정보</small></h1>
 				<hr>
 				<div class="form-group" >
@@ -165,7 +176,7 @@
 				<br/>
 			</div>
 				<!-- col-sm-6 -->
-				<div class="col col-sm-3" style="margin: 0; text-align: center;">
+				<div class="col-sm-3 profile-picture">
 					<div>
 						<label>Profile Picture</label>
 						<br/>

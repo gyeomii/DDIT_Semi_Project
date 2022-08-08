@@ -49,10 +49,18 @@
  width : 80px;
  height : 80px 
 }
+#account_area{
+  margin-top : 15px
+}
+.profile-picture{
+  margin: 0;
+  text-align: center;
+}
 </style>
 </head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
          <div class="icon">
             <a class="navbar-brand" href="#"><img class="icon"
@@ -66,7 +74,7 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-               style="-bs-scroll-height: 100px;">
+               style="-bs-scroll-height: 100px; margin-left : 0">
                <li class="nav-item"><a class="nav-link active"
                   aria-current="page" href="#">공지사항</a></li>
 
@@ -83,6 +91,10 @@
                      <li><a class="dropdown-item" href="#">맛집게시판</a></li>
                   </ul></li>
             </ul>
+            <div class="icon2">
+				<a class="navbar-brand" href="#"><img class="icon2"
+					src="resources/img/궁금해.jpeg"></a>
+			</div>
             <div class="d-flex">
                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
                   style="-bs-scroll-height: 100px;">
@@ -108,7 +120,7 @@
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
 					<img src="resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
-					<div class="col col-sm-2" style="margin-top : 15px;">
+					<div class="col col-sm-2" id="account_area">
 						<p>Gyeomii</p>
 						<div>
 							<p><small>Your personal account</small></p>
@@ -127,45 +139,65 @@
 				  <a href="QnA.jsp" class="list-group-item list-group-item-action active" aria-current="true">📢1 : 1 문의하기</a>
 				</div>
 			  </div>
-			<div class="col col-sm-8" style="margin-top: 0">
+			<div class="col-sm-10" style="margin-top: 0">
 				<h1>1 : 1 문의하기 <small class="text-muted">Q & A</small></h1>
 				<hr>
+			
 				<div class="input-group mb-3">
-				  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">문의 유형</button>
-				  <ul class="dropdown-menu">
-				    <li><a class="dropdown-item" href="#">건의사항</a></li>
-				    <li><a class="dropdown-item" href="#">사용자 신고</a></li>
-				    <li><a class="dropdown-item" href="#">버그 제보</a></li>
-				    <li><hr class="dropdown-divider"></li>
-				    <li><a class="dropdown-item" href="#">추가사항은 DM으로 문의해주세요🙏</a></li>
-				  </ul>
-				  <input type="text" class="form-control" aria-label="title" placeholder="제목">
+				  <label class="input-group-text" for="inputGroupSelect01">문의유형</label>
+				  <select class="form-select" id="inputGroupSelect01" name="qType">
+				    <option selected></option>
+				    <option value="a">건의사항</option>
+				    <option value="b">사용자 신고</option>
+				    <option value="c">버그 제보</option>
+				    <option value="none">추가사항은 DM으로 문의해주세요🙏</option>
+				  </select>
+				 <input type="text" class="form-control" aria-label="title" placeholder="제목" name="title">
 				</div>
+				
 				<div class="input-group">
 				  <span class="input-group-text">문의 내용</span>
-				  <textarea class="form-control" aria-label="content" rows="10"></textarea>
+				  <textarea class="form-control" aria-label="content" style="resize: none;" rows="10" name="content"></textarea>
 				</div>
 				<hr>
 				<div class="input-group mb-3">
 				  <div class="input-group-text">
-				    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox">
+				    <input class="form-check-input mt-0" type="checkbox" value="0" aria-label="Checkbox" name="chk">
 				  </div>
 				  <div class="form-control" aria-label="Text input with checkbox">(필수) 개인정보 수집, 이용동의 <a href="#">전문보기</a></div>
-				  <button class="btn btn-outline-secondary btn-warning" type="button" id="button-addon2" style="color : white">문의 등록</button>
+				  <button class="btn btn-outline-secondary btn-warning" id="regist" type="button" onclick="qna_go()" style="color : white">문의 등록</button>
 				</div>
 				<br/>
 				<br/>
 				<br/>
 				<br/>
 				<br/>
-			</div>
+			  </div>
 			</div>
 		</div>
-   <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+<script>
+	$(document).ready(function(){
+		$("input:checkbox").on('click', function(){
+			if($(this).is(':checked')){
+				$("button[id='regist']").attr('disabled', false);
+			}else{
+				$("button[id='regist']").attr('disabled', true);		
+			}
+		});
+	});
+
+	function qna_go(){
+		var qType = $('select[name="qType"]').val();
+		var title = $('input[name="title"]').val();
+		var content = $('textarea[name="content"]').val();
+		
+		alert(qType + title + content);
+	}
+</script>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"></script>
-   <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
 </body>
 </html>

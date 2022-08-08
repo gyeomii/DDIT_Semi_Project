@@ -52,10 +52,13 @@
 a{
 text-decoration: none;
 }
+#account_area{
+  margin-top : 15px
+}
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
          <div class="icon">
             <a class="navbar-brand" href="#"><img class="icon"
@@ -69,7 +72,7 @@ text-decoration: none;
          </button>
          <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-               style="-bs-scroll-height: 100px;">
+               style="-bs-scroll-height: 100px; margin-left : 0">
                <li class="nav-item"><a class="nav-link active"
                   aria-current="page" href="#">공지사항</a></li>
 
@@ -86,6 +89,10 @@ text-decoration: none;
                      <li><a class="dropdown-item" href="#">맛집게시판</a></li>
                   </ul></li>
             </ul>
+            <div class="icon2">
+				<a class="navbar-brand" href="#"><img class="icon2"
+					src="resources/img/궁금해.jpeg"></a>
+			</div>
             <div class="d-flex">
                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
                   style="-bs-scroll-height: 100px;">
@@ -111,7 +118,7 @@ text-decoration: none;
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
 					<img src="resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
-					<div class="col col-sm-2" style="margin-top : 15px;">
+					<div class="col-sm-2" id="account_area">
 						<p>Gyeomii</p>
 						<div>
 							<p><small>Your personal account</small></p>
@@ -130,62 +137,70 @@ text-decoration: none;
 				  <a href="QnA.jsp" class="list-group-item list-group-item-action">📢1 : 1 문의하기</a>
 				</div>
 			  </div>
-			<div class="col col-sm-8" style="margin-top: 0">
+			<div class="col-sm-10" style="margin-top: 0">
 				<h1>내가 쓴 글 <small class="text-muted">my post</small></h1>
 				<hr>
 				<div class="input-group mb-3">
-				  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">검색 조건</button>
-				  <ul class="dropdown-menu">
-				    <li><a class="dropdown-item" href="#">제목</a></li>
-				    <li><a class="dropdown-item" href="#">내용</a></li>
-				    <li><a class="dropdown-item" href="#">제목 + 내용</a></li>
-				  </ul>
-				  <input type="text" class="form-control" aria-label="title" placeholder="검색내용">
-				  <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
+				  <label class="input-group-text" for="inputGroupSelect01">검색조건</label>
+				  <select class="form-select" id="inputGroupSelect01" name="searchType">
+				    <option selected></option>
+				    <option value="t">제목</option>
+				    <option value="w">작성자</option>
+				    <option value="a">제목 + 작성자</option>
+				  </select>
+				  <input type="text" class="form-control" aria-label="title" name="keyword" placeholder="검색내용">
+				  <button class="btn btn-outline-secondary" type="button" onclick="search_go()">검색</button>
 				</div>
 				<table class="table table-hover">
 				  <thead>
 				    <tr>
 				      <th scope="col">번호</th>
+				      <th scope="col">게시판</th>
 				      <th scope="col">제목</th>
-				      <th scope="col"></th>
 				      <th scope="col">작성일</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr>
+				    <tr id="post">
 				      <th scope="row">1</th>
-				      <td colspan="2"><a href=#>아아 배고프다</a></td>
+				      <td>깐부게시판</td>
+				      <td><a>아아 배고프다</a></td>
 				      <td>2022.01.01</td>
 				    </tr>
-				    <tr>
+				    <tr id="post">
 				      <th scope="row">2</th>
-				      <td colspan="2"><a href=#>아아 집가고싶다</a></td>
+				      <td>자유게시판</td>
+				      <td><a>아아 집가고싶다</a></td>
 				      <td>2022.01.02</td>
 				    </tr>
-				    <tr>
+				    <tr id="post">
 				      <th scope="row">3</th>
-				      <td colspan="2"><a href=#>아아 마시고싶다</a></td>
+				      <td>깐부게시판</td>
+				      <td><a>아아 마시고싶다</a></td>
 				      <td>2022.01.03</td>
 				    </tr>
-				    <tr>
+				    <tr id="post">
 				      <th scope="row">4</th>
-				      <td colspan="2"><a href=#>으아아아아아</a></td>
+				      <td>깐부게시판</td>
+				      <td><a>으아아아아아</a></td>
 				      <td>2022.01.04</td>
 				    </tr>
-				    <tr>
+				    <tr id="post">
 				      <th scope="row">5</th>
-				      <td colspan="2"><a href=#>오오오오오</a></td>
+				      <td>깐부게시판</td>
+				      <td><a>오오오오오</a></td>
 				      <td>2022.01.05</td>
 				    </tr>
-				    <tr>
+				    <tr id="post">
 				      <th scope="row">6</th>
-				      <td colspan="2"><a href=#>우우우우ㅜ우</a></td>
+				      <td>깐부게시판</td>
+				      <td><a>우우우우ㅜ우</a></td>
 				      <td>2022.01.06</td>
 				    </tr>
-				    <tr>
+				    <tr id="post">
 				      <th scope="row">7</th>
-				      <td colspan="2"><a href=#>야스</a></td>
+				      <td>깐부게시판</td>
+				      <td><a>야스</a></td>
 				      <td>2022.01.06</td>
 				    </tr>
 				  </tbody>
@@ -198,6 +213,15 @@ text-decoration: none;
 			</div>
 			</div>
 		</div>
+<script>
+	//검색버튼
+	function search_go(){
+		var searchType = $('select[name="searchType"]').val();
+		var keyword = $('input[name="keyword"]').val();
+		alert("searchType : " + searchType + "\nkeyword : " + keyword);
+		alert("서버문제로 현재 검색이 불가합니다.\n문의는 DM으로 부탁드려요.🙏");
+	}
+</script>
    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

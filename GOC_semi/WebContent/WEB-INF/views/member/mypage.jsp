@@ -58,13 +58,12 @@
 }
 </style>
 </head>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
          <div class="icon">
-            <a class="navbar-brand" href="#"><img class="icon"
-               src="resources/img/icon.png"></a>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/member/main.do"><img class="icon"
+               src="<%=request.getContextPath()%>/resources/img/icon.png"></a>
          </div>
          <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -93,7 +92,7 @@
             </ul>
             <div class="icon2">
 				<a class="navbar-brand" href="#"><img class="icon2"
-					src="resources/img/궁금해.jpeg"></a>
+					src="<%=request.getContextPath()%>/resources/img/궁금해.jpeg"></a>
 			</div>
             <div class="d-flex">
                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
@@ -107,7 +106,7 @@
                         <li><a class="dropdown-item" href="#">마이페이지</a></li>
                         <li><a class="dropdown-item" href="#">마이페이지</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">로그아웃</a></li>
+                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/login.do">로그아웃</a></li>
                      </ul></li>
                </ul>
             </div>
@@ -119,8 +118,8 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
-					<div class="col col-sm-2" id="account_area">
+					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<div class="col-sm-2" id="account_area">
 						<p>Gyeomii</p>
 						<div>
 							<p><small>Your personal account</small></p>
@@ -132,72 +131,67 @@
 		<div class="row">
 			<div class="col-sm-2">
 			   	 <div class="list-group">
-			   	  <a href="MyPage.jsp" class="list-group-item list-group-item-action ">🙍‍♂‍profile</a>
-				  <a href="EditMemberInfo.jsp" class="list-group-item list-group-item-action">🔑회원정보수정</a>
-				  <a href="MyPost.jsp" class="list-group-item list-group-item-action">✒내가 쓴 글</a>
-				  <a href="tendency.jsp" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
-				  <a href="QnA.jsp" class="list-group-item list-group-item-action active" aria-current="true">📢1 : 1 문의하기</a>
+			   	  <a href="<%=request.getContextPath()%>/member/mypage.do" class="list-group-item list-group-item-action active" aria-current="true">🙍‍♂‍profile</a>
+				  <a href="<%=request.getContextPath()%>/member/editmemberinfo.do" class="list-group-item list-group-item-action">🔑회원정보수정</a>
+				  <a href="<%=request.getContextPath()%>/member/mypost.do" class="list-group-item list-group-item-action">✒내가 쓴 글</a>
+				  <a href="<%=request.getContextPath()%>/member/tendency.do" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
+				  <a href="<%=request.getContextPath()%>/member/qna.do" class="list-group-item list-group-item-action ">📢1 : 1 문의하기</a>
 				</div>
 			  </div>
-			<div class="col-sm-10" style="margin-top: 0">
-				<h1>1 : 1 문의하기 <small class="text-muted">Q & A</small></h1>
+			<div class="col-sm-7" style="margin-top: 0">
+				<h1>Public Profile <small class="text-muted">회원정보</small></h1>
 				<hr>
-			
-				<div class="input-group mb-3">
-				  <label class="input-group-text" for="inputGroupSelect01">문의유형</label>
-				  <select class="form-select" id="inputGroupSelect01" name="qType">
-				    <option selected></option>
-				    <option value="a">건의사항</option>
-				    <option value="b">사용자 신고</option>
-				    <option value="c">버그 제보</option>
-				    <option value="none">추가사항은 DM으로 문의해주세요🙏</option>
-				  </select>
-				 <input type="text" class="form-control" aria-label="title" placeholder="제목" name="title">
+				<div class="form-group" >
+					<label for="inputId">ID</label>
+					<input type="text" class="form-control" id="inputId" value="아직없슈" readonly />
 				</div>
-				
-				<div class="input-group">
-				  <span class="input-group-text">문의 내용</span>
-				  <textarea class="form-control" aria-label="content" style="resize: none;" rows="10" name="content"></textarea>
+
+				<div class="form-group" >
+					<label for="inputName">Name</label>
+					<input type="text" class="form-control" id="inputName" value="아직없슈" readonly />
 				</div>
-				<hr>
-				<div class="input-group mb-3">
-				  <div class="input-group-text">
-				    <input class="form-check-input mt-0" type="checkbox" value="0" aria-label="Checkbox" name="chk">
-				  </div>
-				  <div class="form-control" aria-label="Text input with checkbox">(필수) 개인정보 수집, 이용동의 <a href="#">전문보기</a></div>
-				  <button class="btn btn-outline-secondary btn-warning" id="regist" type="button" onclick="qna_go()" style="color : white">문의 등록</button>
+
+				<div class="form-group" >
+					<label for="inputEmail">E-mail</label>
+					<input type="text" class="form-control" id="inputEmail" value="아직없슈" readonly />
+				</div>
+				<div class="form-group" >
+					<label for="inputPhone">Phone</label>
+					<input type="text" class="form-control" id="inputPhone" value="아직없슈" readonly />
+				</div>
+
+				<div class="form-group" >
+					<label for="inputAddress">Address</label>
+					<input type="text" class="form-control" id="inputAddress" value="아직없슈" readonly />
+				</div>
+
+				<div class="form-group" >
+					<label for="inputNickname">Nickname</label>
+					<input type="text" class="form-control" id="inputNickname" value="아직없슈" readonly />
 				</div>
 				<br/>
 				<br/>
 				<br/>
 				<br/>
 				<br/>
-			  </div>
+			</div>
+				<!-- col-sm-6 -->
+				<div class="col-sm-3 profile-picture">
+					<div>
+						<label>Profile Picture</label>
+						<br/>
+						<div>
+							<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" width="200" height="200" class="rounded-circle" style="border : solid">
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-<script>
-	$(document).ready(function(){
-		$("input:checkbox").on('click', function(){
-			if($(this).is(':checked')){
-				$("button[id='regist']").attr('disabled', false);
-			}else{
-				$("button[id='regist']").attr('disabled', true);		
-			}
-		});
-	});
-
-	function qna_go(){
-		var qType = $('select[name="qType"]').val();
-		var title = $('input[name="title"]').val();
-		var content = $('textarea[name="content"]').val();
-		
-		alert(qType + title + content);
-	}
-</script>
-
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+   <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"></script>
-
+   <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 </html>

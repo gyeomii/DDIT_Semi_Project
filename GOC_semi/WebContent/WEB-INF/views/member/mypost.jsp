@@ -61,8 +61,8 @@ text-decoration: none;
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container-fluid">
          <div class="icon">
-            <a class="navbar-brand" href="#"><img class="icon"
-               src="resources/img/icon.png"></a>
+            <a class="navbar-brand" href="<%=request.getContextPath()%>/member/main.do"><img class="icon"
+               src="<%=request.getContextPath()%>/resources/img/icon.png"></a>
          </div>
          <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -91,7 +91,7 @@ text-decoration: none;
             </ul>
             <div class="icon2">
 				<a class="navbar-brand" href="#"><img class="icon2"
-					src="resources/img/궁금해.jpeg"></a>
+					src="<%=request.getContextPath()%>/resources/img/궁금해.jpeg"></a>
 			</div>
             <div class="d-flex">
                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
@@ -102,10 +102,10 @@ text-decoration: none;
                      data-bs-toggle="dropdown" aria-expanded="false"> 회원닉네임 </a>
                      <ul class="dropdown-menu"
                         aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="#">마이페이지</a></li>
+                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
                         <li><a class="dropdown-item" href="#">마이페이지</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">로그아웃</a></li>
+                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/login.do">로그아웃</a></li>
                      </ul></li>
                </ul>
             </div>
@@ -117,7 +117,7 @@ text-decoration: none;
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col-sm-2" id="account_area">
 						<p>Gyeomii</p>
 						<div>
@@ -130,11 +130,11 @@ text-decoration: none;
 		<div class="row">
 			<div class="col-sm-2">
 			   	 <div class="list-group">
-			   	  <a href="MyPage.jsp" class="list-group-item list-group-item-action ">🙍‍♂‍profile</a>
-				  <a href="EditMemberInfo.jsp" class="list-group-item list-group-item-action">🔑회원정보수정</a>
-				  <a href="MyPost.jsp" class="list-group-item list-group-item-action active" aria-current="true">✒내가 쓴 글</a>
-				  <a href="tendency.jsp" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
-				  <a href="QnA.jsp" class="list-group-item list-group-item-action">📢1 : 1 문의하기</a>
+			   	  <a href="<%=request.getContextPath()%>/member/mypage.do" class="list-group-item list-group-item-action">🙍‍♂‍profile</a>
+				  <a href="<%=request.getContextPath()%>/member/editmemberinfo.do" class="list-group-item list-group-item-action">🔑회원정보수정</a>
+				  <a href="<%=request.getContextPath()%>/member/mypost.do" class="list-group-item list-group-item-action active" aria-current="true">✒내가 쓴 글</a>
+				  <a href="<%=request.getContextPath()%>/member/tendency.do" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
+				  <a href="<%=request.getContextPath()%>/member/qna.do" class="list-group-item list-group-item-action ">📢1 : 1 문의하기</a>
 				</div>
 			  </div>
 			<div class="col-sm-10" style="margin-top: 0">

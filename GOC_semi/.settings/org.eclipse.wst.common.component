@@ -2,6 +2,7 @@
     <wb-module deploy-name="GOC_semi">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/res"/>
         <property name="context-root" value="GOC_semi"/>
         <property name="java-output-path" value="/GOC_semi/build/classes"/>
     </wb-module>

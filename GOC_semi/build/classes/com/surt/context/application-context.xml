@@ -1,0 +1,11 @@
+<beans>
+	<bean id="sqlSessionFactory" class="com.surt.datasource.OracleMybatisSqlSessionFactory"/>
+	
+	<bean id="memberDAO" class="com.surt.dao.MemberDAOImpl">
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="memberService" class="com.surt.service.MemberServiceImpl">
+		<property name="memberDAO" ref-value="memberDAO"/>
+	</bean>
+</beans>

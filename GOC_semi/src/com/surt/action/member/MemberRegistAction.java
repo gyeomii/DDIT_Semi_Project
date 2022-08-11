@@ -11,10 +11,10 @@ import com.surt.service.MemberService;
 
 public class MemberRegistAction implements Action {
 	
-	private MemberService searchMemberService;
+	private MemberService MemberService;
 
-	public void setSearchMemberService(MemberService searchMemberService) {
-		this.searchMemberService = searchMemberService;
+	public void setMemberService(MemberService memberService) {
+		this.memberService = memberService;
 	}
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -29,7 +29,7 @@ public class MemberRegistAction implements Action {
 			MemberVO member = command.toMemberVO();
 
 			// 처리
-			searchMemberService.regist(member);
+			memberService.regist(member);
 
 		} catch (Exception e) {
 			e.printStackTrace();

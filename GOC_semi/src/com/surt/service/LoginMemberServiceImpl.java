@@ -13,7 +13,7 @@ import com.surt.exception.NotFoundIdException;
 public class LoginMemberServiceImpl extends MemberServiceImpl implements LoginMemberService {
 	private MemberDAO memberDAO;
 
-	public void setSearchMemberDAO(MemberDAO memberDAO) {
+	public void setMemberDAO(MemberDAO memberDAO) {
 		this.memberDAO = memberDAO;
 	}
 

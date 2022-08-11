@@ -125,13 +125,13 @@ public class MemberRegistCommand {
 
 		// MemberVO setting
 		MemberVO member = new MemberVO();
-		member.setUser_id(birth);
+		member.setUser_id(user_id);
 		member.setName(name);
 		member.setEmail(email);
 		member.setPhone(phone);
 		member.setAddress(address);
 		member.setBirth(birth);
-		member.setPassword(birth);
+		member.setPassword(password);
 		member.setNickname(nickname);
 		member.setGender(gender);
 		member.setAgree_tos(1);

@@ -3,67 +3,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Member-Mapper">
-	<sql id="search">	
-		<if test="searchType == 'i'.toString()">
-			and id like '%'||#{keyword}||'%'			
-		</if>
-		<if test="searchType == 'p'.toString()">
-			and phone like '%'||#{keyword}||'%'			
-		</if>
-		<if test="searchType == 'e'.toString()">
-			and email like '%'||#{keyword}||'%'			
-		</if>
-		<if test="searchType == 'n'.toString()">
-			and name like '%'||#{keyword}||'%'			
-		</if>			
-	</sql>
 	
 	<select id="selectMemberById" parameterType="str" resultType="member">
 		select
-		*
+		user_id, password, name
 		from member
-		where id=#{id}
-	</select>
-	
-	<select id="selectMemberList" resultType="member">
-		select
-		* 
-		from member
-		where id is not null
-		<include refid="search" />
-		order by regDate desc
-	</select>
-	
-	<select id="selectMemberListCount" resultType="int">
-		select
-		count(*) 
-		from member
-		where id is not null
-		<include refid="search" />
+		where user_id=#{user_id}
 	</select>
 	
 	<update id="insertMember" parameterType="member">
+		<selectKey order="BEFORE" keyProperty="user_idx" resultType="int">
+				SELECT USER_IDX_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		insert into 
-		member(id, pwd, email, phone,picture,name,authority)
-		values(#{id},#{pwd},#{email},#{phone},#{picture},#{name},#{authority})
+		member(user_idx, user_id, name, email, password, birth, address, nickname, gender, phone, regist_date, agree_tos)
+		values(#{user_idx}, #{user_id}, #{name}, #{email}, #{password},
+				 #{birth}, #{address}, #{nickname}, #{gender}, #{phone},
+				  #{regist_date}, #{agree_tos})
 	</update>
 	
-	<update id="updateMember" parameterType="member">
-		update member 
-		set 
-		pwd=#{pwd},email=#{email},phone=#{phone},name=#{name},
-		picture=#{picture},enabled=1
-		
-		<if test="authority != null">
-			,authority=#{authority}
-		</if>
-		
-		where id=#{id}
-	</update>
-	
-	<update id="deleteMember" parameterType="str" >
-		delete 
-		from member 
-		where id=#{id}		
-	</update>
 </mapper>

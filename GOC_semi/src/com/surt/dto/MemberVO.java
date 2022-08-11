@@ -5,18 +5,18 @@ import java.util.Date;
 public class MemberVO { 
    
    //사용자 입력 정보
-   private String user_idx; //아이디
+   private int user_idx; //아이디
    private String user_id; 
    private String name="semi"; //이름
    private String email; //이메일
    private String password; //패스워드
-   private Date birth; //전화번호
+   private String birth; //전화번호
    private String address; //주소
    private String nickname; 
    private String gender; 
    private String phone; //전화번호
    private String picture; //사진파일 경로/파일명
-   private String agree_tos; 
+   private int agree_tos; 
    private String role; 
    
    //시스템 정보
@@ -26,11 +26,11 @@ public class MemberVO {
    
    public MemberVO() {}
 
-   public String getUser_idx() {
+   public int getUser_idx() {
       return user_idx;
    }
 
-   public void setUser_idx(String user_idx) {
+   public void setUser_idx(int user_idx) {
       this.user_idx = user_idx;
    }
 
@@ -66,11 +66,11 @@ public class MemberVO {
       this.password = password;
    }
 
-   public Date getBirth() {
+   public String getBirth() {
       return birth;
    }
 
-   public void setBirth(Date birth) {
+   public void setBirth(String birth) {
       this.birth = birth;
    }
 
@@ -114,11 +114,11 @@ public class MemberVO {
       this.picture = picture;
    }
 
-   public String getAgree_tos() {
+   public int getAgree_tos() {
       return agree_tos;
    }
 
-   public void setAgree_tos(String agree_tos) {
+   public void setAgree_tos(int agree_tos) {
       this.agree_tos = agree_tos;
    }
 

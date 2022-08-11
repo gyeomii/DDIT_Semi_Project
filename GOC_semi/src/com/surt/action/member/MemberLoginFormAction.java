@@ -5,11 +5,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.surt.action.Action;
 
-public class MemberGaipFormAction implements Action {
+public class MemberLoginFormAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "/member/gaip";
+		String url = "/member/loginForm";
 		return url;
 	}
 

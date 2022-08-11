@@ -153,19 +153,17 @@ ul.imgs li{
 
 				<div class="col-md-6">
 					<img src="<%=request.getContextPath()%>/resources/img/너성보.jfif" id="tendency">
-					<form class="form-horizontal">
+					<form class="form-horizontal" action="login.do" method="post">
 						<div class="form-group">
-							<label for="inputEmail3" class="col-sm-2 control-label">ID</label>
+							<label for="inputId" class="col-sm-2 control-label">ID</label>
 							<div class="col-sm-10">
-								<input type="email" class="form-control" id="inputEmail3"
-									placeholder="ID">
+								<input type="text" class="form-control" id="inputId" name="id" placeholder="ID">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+							<label for="inputPassword" class="col-sm-2 control-label">Password</label>
 							<div class="col-sm-10">
-								<input type="password" class="form-control" id="inputPassword3"
-									placeholder="Password">
+								<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
 							</div>
 						</div>
 						<div class="form-group">
@@ -179,8 +177,8 @@ ul.imgs li{
 						</div>
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
-								<button type="button" class="btn btn-default" onclick='location.href="main.do"'>로그인</button>
-								<button type="button" class="btn btn-link" onclick='location.href="gaipForm.do"'>회원가입 하러가기</button>
+								<button type="submit" class="btn btn-default">로그인</button>
+								<button type="button" class="btn btn-link" onclick='location.href="registForm.do"'>회원가입 하러가기</button>
 							</div>
 						</div>
 					</form>
@@ -189,9 +187,11 @@ ul.imgs li{
 		</div>
 	</div>
 	<!-- /.container -->
-<script>
-	function
-</script>
+	<script>
+	function login_go(){
+		
+	}
+	</script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 	<script

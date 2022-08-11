@@ -8,4 +8,8 @@
 	<bean id="memberService" class="com.surt.service.MemberServiceImpl">
 		<property name="memberDAO" ref-value="memberDAO"/>
 	</bean>
+	
+	<bean id="loginMemberService" class="com.surt.service.LoginMemberServiceImpl">
+		<property name="memberDAO" ref-value="memberDAO"/>
+	</bean>
 </beans>

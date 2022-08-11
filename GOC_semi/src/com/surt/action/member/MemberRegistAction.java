@@ -11,7 +11,7 @@ import com.surt.service.MemberService;
 
 public class MemberRegistAction implements Action {
 	
-	private MemberService MemberService;
+	private MemberService memberService;
 
 	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;

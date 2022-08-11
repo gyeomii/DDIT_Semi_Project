@@ -12,7 +12,7 @@ import com.surt.service.MemberService;
 public class MemberIdCheckAction implements Action {
 	
 	private MemberService memberService;
-	public void setSearchMemberService(MemberService memberService) {
+	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
 	}
 

@@ -6,7 +6,7 @@
 	
 	<select id="selectMemberById" parameterType="str" resultType="member">
 		select
-		user_id, password, name
+		*
 		from member
 		where user_id=#{user_id}
 	</select>

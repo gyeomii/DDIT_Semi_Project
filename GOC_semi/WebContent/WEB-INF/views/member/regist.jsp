@@ -118,7 +118,13 @@
 	
 			<div class="sm-3">
 				<label for="formGroupExampleInput2" class="form-label">닉네임</label>
-				<input type="text" class="form-control" id="nickname" name="nickname" placeholder="ex)leeknow">
+				<div class="row">
+				  <div class="col-sm-10">
+					<input type="text" class="form-control" id="nickname" name="nickname" placeholder="ex)leeknow">
+				  </div>
+				  <div class="col-sm-2">
+					<button type="button" class="btn btn-primary" onclick="nickCheck_go();">중복확인</button>
+				  </div>
 			</div>
 			<br> <label for="formGroupExampleInput2" class="form-label">이메일</label>
 			<div class="input-group mb-3">
@@ -231,6 +237,36 @@ function idCheck_go(){
 				alert("사용가능한 아이디 입니다.");
 				checkedID = input_ID.val().trim();
 				$('input[name="id"]').val(input_ID.val().trim());
+			}
+		},
+		error : function(error){
+			alert("시스템장애로 가입이 불가합니다.");
+		}
+	});
+}
+
+var checkedNick = "";
+function nickCheck_go(){
+	//alert("idCheck btn Click");
+	var input_Nick = $('input[name="nickname"]');
+	
+	if(!input_Nick.val()){
+		alert("아이디를 입력하세요");
+		input_Nick.focus();
+		return;
+	}
+	
+	$.ajax({
+		url : "nickCheck.do?nickname=" + input_Nick.val().trim(),
+		method : "get",
+		success : function(result){
+			if(result.toUpperCase() == "DUPLICATED"){
+				alert("중복된 아이디 입니다.");
+				$('input[name="nickname"]').focus();
+			}else{
+				alert("사용가능한 아이디 입니다.");
+				checkedID = input_Nick.val().trim();
+				$('input[name="nickname"]').val(input_Nick.val().trim());
 			}
 		},
 		error : function(error){

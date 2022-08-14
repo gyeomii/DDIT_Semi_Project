@@ -99,4 +99,18 @@ public class MemberDAOImpl implements MemberDAO{
 			if(session != null)session.close();
 		}
 	}
+
+	@Override
+	public MemberVO selectMemberByNickname(String nickname) throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			MemberVO member=session.selectOne("Member-Mapper.selectMemberByNickname",nickname);			
+			return member;			
+		}catch(Exception e) {
+			//에러처리
+			throw e;
+		}finally {
+			if(session != null)session.close();
+		}
+	}
 }

@@ -15,6 +15,7 @@ public interface MemberDAO {
 	int selectMemberListCount(Criteria cri) throws SQLException;
 	// 회원 검색
 	MemberVO selectMemberById(String id)throws SQLException;
+	MemberVO selectMemberByNickname(String nickname)throws SQLException;
 	//회원 추가
 	public void insertMember(MemberVO member) throws SqlSessionException;
 	//회원 수정

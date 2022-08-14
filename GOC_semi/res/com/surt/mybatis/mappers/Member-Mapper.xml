@@ -11,6 +11,13 @@
 		where user_id=#{user_id}
 	</select>
 	
+	<select id="selectMemberByNickName" parameterType="str" resultType="member">
+		select
+		*
+		from member
+		where nickname=#{nickname}
+	</select>
+	
 	<update id="insertMember" parameterType="member">
 		<selectKey order="BEFORE" keyProperty="user_idx" resultType="int">
 				SELECT USER_IDX_SEQ.NEXTVAL FROM DUAL

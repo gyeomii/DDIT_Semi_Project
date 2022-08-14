@@ -55,4 +55,10 @@ public class MemberServiceImpl implements MemberService {
 	public void remove(String id) throws SQLException {
 		memberDAO.deleteMember(id);
 	}
+
+	@Override
+	public MemberVO checkNickname(String nickname) throws SQLException {
+		MemberVO member = memberDAO.selectMemberByNickname(nickname);
+		return member;
+	}
 }

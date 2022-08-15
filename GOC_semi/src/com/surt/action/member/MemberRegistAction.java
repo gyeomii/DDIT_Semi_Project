@@ -24,10 +24,10 @@ public class MemberRegistAction implements Action {
 		// 입력
 		try {
 			request.setCharacterEncoding("utf-8");
-
+			System.out.println("id : " + request.getParameter("user_id"));
 			MemberRegistCommand command = HttpRequestParameterAdapter.execute(request, MemberRegistCommand.class);
 			MemberVO member = command.toMemberVO();
-
+			System.out.println("member Id : " + member.getUser_id());
 			// 처리
 			memberService.regist(member);
 

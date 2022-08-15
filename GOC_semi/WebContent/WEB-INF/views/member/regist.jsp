@@ -101,7 +101,7 @@
 				<label for="formGroupExampleInput" class="form-label">아이디</label>
 				<div class="row">
 				  <div class="col-sm-10">
-					<input type="text" class="form-control" id="id" name="id" placeholder="ex)stray2">
+					<input type="text" class="form-control" id="id" name="user_id" placeholder="ex)stray2">
 				  </div>
 				  <div class="col-sm-2">
 					<button type="button" class="btn btn-primary" onclick="idCheck_go();">중복확인</button>
@@ -218,7 +218,7 @@
 var checkedID = "";
 function idCheck_go(){
 	//alert("idCheck btn Click");
-	var input_ID = $('input[name="id"]');
+	var input_ID = $('input[name="user_id"]');
 	
 	if(!input_ID.val()){
 		alert("아이디를 입력하세요");
@@ -232,11 +232,11 @@ function idCheck_go(){
 		success : function(result){
 			if(result.toUpperCase() == "DUPLICATED"){
 				alert("중복된 아이디 입니다.");
-				$('input[name="id"]').focus();
+				$('input[name="user_id"]').focus();
 			}else{
 				alert("사용가능한 아이디 입니다.");
 				checkedID = input_ID.val().trim();
-				$('input[name="id"]').val(input_ID.val().trim());
+				$('input[name="user_id"]').val(input_ID.val().trim());
 			}
 		},
 		error : function(error){
@@ -251,7 +251,7 @@ function nickCheck_go(){
 	var input_Nick = $('input[name="nickname"]');
 	
 	if(!input_Nick.val()){
-		alert("아이디를 입력하세요");
+		alert("닉네임을 입력하세요");
 		input_Nick.focus();
 		return;
 	}
@@ -261,11 +261,11 @@ function nickCheck_go(){
 		method : "get",
 		success : function(result){
 			if(result.toUpperCase() == "DUPLICATED"){
-				alert("중복된 아이디 입니다.");
+				alert("중복된 닉네임 입니다.");
 				$('input[name="nickname"]').focus();
 			}else{
-				alert("사용가능한 아이디 입니다.");
-				checkedID = input_Nick.val().trim();
+				alert("사용가능한 닉네임 입니다.");
+				checkedNick = input_Nick.val().trim();
 				$('input[name="nickname"]').val(input_Nick.val().trim());
 			}
 		},
@@ -274,15 +274,21 @@ function nickCheck_go(){
 		}
 	});
 }
+
 function regist_go(){
 	
-	if(!$('input[name="id"]').val()){
+	if(!$('input[name="user_id"]').val()){
 		alert("아이디 입력은 필수입니다.");
 		return;
 	}
 	
-	if($('input[name="id"]').val() != checkedID){
+	if($('input[name="user_id"]').val() != checkedID){
 		alert("아이디 중복체크를 해주세요.");
+		return;
+	}
+	
+	if($('input[name="nickname"]').val() != checkedNick){
+		alert("닉네임 중복체크를 해주세요.");
 		return;
 	}
 	

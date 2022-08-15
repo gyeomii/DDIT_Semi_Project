@@ -6,9 +6,16 @@
 	
 	<select id="selectMemberById" parameterType="str" resultType="member">
 		select
-		user_id, password, name
+		*
 		from member
-		where user_id=#{user_id}
+		where user_id = #{user_id}
+	</select>
+	
+	<select id="selectMemberByNickname" parameterType="str" resultType="member">
+		select
+		*
+		from member
+		where nickname = #{nickname}
 	</select>
 	
 	<update id="insertMember" parameterType="member">

@@ -122,7 +122,8 @@ public class MemberRegistCommand {
 		for (String data3 : this.birth) {
 			birth += data3;
 		}
-
+		System.out.println("id : " + getUser_id());
+		
 		// MemberVO setting
 		MemberVO member = new MemberVO();
 		member.setUser_id(user_id);

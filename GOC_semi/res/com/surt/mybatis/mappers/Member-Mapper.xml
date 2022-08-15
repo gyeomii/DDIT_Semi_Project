@@ -8,14 +8,14 @@
 		select
 		*
 		from member
-		where user_id=#{user_id}
+		where user_id = #{user_id}
 	</select>
 	
-	<select id="selectMemberByNickName" parameterType="str" resultType="member">
+	<select id="selectMemberByNickname" parameterType="str" resultType="member">
 		select
 		*
 		from member
-		where nickname=#{nickname}
+		where nickname = #{nickname}
 	</select>
 	
 	<update id="insertMember" parameterType="member">

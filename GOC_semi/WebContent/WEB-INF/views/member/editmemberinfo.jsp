@@ -102,7 +102,7 @@
                   <li class="nav-item dropdown"><a
                      class="nav-link dropdown-toggle" href="#"
                      id="navbarScrollingDropdown" role="button"
-                     data-bs-toggle="dropdown" aria-expanded="false"> 회원닉네임 </a>
+                     data-bs-toggle="dropdown" aria-expanded="false"> ${sessionScope.loginUser.nickname} </a>
                      <ul class="dropdown-menu"
                         aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
@@ -122,7 +122,7 @@
 			<div class="row" style="display : flex; padding-bottom : 20px;">
 					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col col-sm-2" id="account_area">
-						<p>Gyeomii</p>
+						<p>${sessionScope.loginUser.nickname}</p>
 						<div>
 							<p><small>Your personal account</small></p>
 						</div>
@@ -147,15 +147,15 @@
 				  <hr>
 				  <div class="mb-3">
 				    <label for="formGroupExampleInput" class="form-label">아이디</label>
-				    <input type="text" class="form-control" id="inputId" placeholder="ex)stray2">
+				    <input type="text" class="form-control" id="inputId" placeholder="ex)stray2" name="user_id" value=${sessionScope.loginUser.user_id}>
 				  </div>
 				  <div class="mb-3">
 				    <label for="formGroupExampleInput" class="form-label">이  름</label>
-				    <input type="text" class="form-control" id="inputName" placeholder="ex)이민호">
+				    <input type="text" class="form-control" id="inputName" placeholder="ex)이민호" name="name" value=${sessionScope.loginUser.name}>
 				  </div>
 				  <div class="mb-3">
 				    <label for="formGroupExampleInput2" class="form-label">닉네임</label>
-				    <input type="text" class="form-control" id="inputNick" placeholder="ex)leeknow">
+				    <input type="text" class="form-control" id="inputNick" placeholder="ex)leeknow" name="nickname" value=${sessionScope.loginUser.nickname}>
 				  </div>
 				  
 				  <label for="formGroupExampleInput2" class="form-label">이메일</label>
@@ -180,7 +180,7 @@
 				  <br/>
 				  <div class="mb-3">
 				    <label for="formGroupExampleInput" class="form-label">비밀번호</label>
-				    <input type="text" class="form-control pw" id="inputPw" placeholder="Must be 8-20 characters long.">
+				    <input type="text" class="form-control pw" id="inputPw" placeholder="Must be 8-20 characters long." name="password">
 				  </div>
 				  <div class="mb-3">
 				    <label for="formGroupExampleInput" class="form-label">비밀번호 확인</label>
@@ -190,14 +190,7 @@
 				  </div> 
 				  
 				  <label for="formGroupExampleInput2" class="form-label">주소</label>   
-				  <select class="form-select" aria-label="Default select example" id="inputAddr">
-					  <option selected>주소를 선택하세요.</option>
-					  <option value="1">대전광역시 동구</option>
-					  <option value="2">대전광역시 중구</option>
-					  <option value="3">대전광역시 대덕구</option>
-					  <option value="4">대전광역시 서구</option>
-					  <option value="5">대전광역시 유성구</option>
-				  </select>
+				  <input type="text" class="form-control" id="formGroupExampleInput2" name="address" placeholder="주소를 입력하세요" value=${sessionScope.loginUser.nickname}>
 				  <br/>
 				  <Button type="button" class="btn btn-primary" onclick="update_go()">정보 수정</Button>
 				  <br/>

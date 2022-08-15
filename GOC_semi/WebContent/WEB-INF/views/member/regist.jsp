@@ -227,7 +227,7 @@ function idCheck_go(){
 	}
 	
 	$.ajax({
-		url : "idCheck.do?id=" + input_ID.val().trim(),
+		url : "idCheck.do?user_id=" + input_ID.val().trim(),
 		method : "get",
 		success : function(result){
 			if(result.toUpperCase() == "DUPLICATED"){

@@ -100,7 +100,7 @@
                   <li class="nav-item dropdown"><a
                      class="nav-link dropdown-toggle" href="#"
                      id="navbarScrollingDropdown" role="button"
-                     data-bs-toggle="dropdown" aria-expanded="false"> 회원닉네임 </a>
+                     data-bs-toggle="dropdown" aria-expanded="false"> ${sessionScope.loginUser.nickname} </a>
                      <ul class="dropdown-menu"
                         aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="#">마이페이지</a></li>
@@ -120,7 +120,7 @@
 			<div class="row" style="display : flex; padding-bottom : 20px;">
 					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col-sm-2" id="account_area">
-						<p>Gyeomii</p>
+						<p>${sessionScope.loginUser.nickname}</p>
 						<div>
 							<p><small>Your personal account</small></p>
 						</div>
@@ -143,31 +143,31 @@
 				<hr>
 				<div class="form-group" >
 					<label for="inputId">ID</label>
-					<input type="text" class="form-control" id="inputId" value="아직없슈" readonly />
+					<input type="text" class="form-control" id="inputId" value=${sessionScope.loginUser.user_id} readonly />
 				</div>
 
 				<div class="form-group" >
 					<label for="inputName">Name</label>
-					<input type="text" class="form-control" id="inputName" value="아직없슈" readonly />
+					<input type="text" class="form-control" id="inputName" value=${sessionScope.loginUser.name} readonly />
 				</div>
 
 				<div class="form-group" >
 					<label for="inputEmail">E-mail</label>
-					<input type="text" class="form-control" id="inputEmail" value="아직없슈" readonly />
+					<input type="text" class="form-control" id="inputEmail" value=${sessionScope.loginUser.email} readonly />
 				</div>
 				<div class="form-group" >
 					<label for="inputPhone">Phone</label>
-					<input type="text" class="form-control" id="inputPhone" value="아직없슈" readonly />
+					<input type="text" class="form-control" id="inputPhone" value=${sessionScope.loginUser.phone} readonly />
 				</div>
 
 				<div class="form-group" >
 					<label for="inputAddress">Address</label>
-					<input type="text" class="form-control" id="inputAddress" value="아직없슈" readonly />
+					<input type="text" class="form-control" id="inputAddress" value=${sessionScope.loginUser.address} readonly />
 				</div>
 
 				<div class="form-group" >
 					<label for="inputNickname">Nickname</label>
-					<input type="text" class="form-control" id="inputNickname" value="아직없슈" readonly />
+					<input type="text" class="form-control" id="inputNickname" value=${sessionScope.loginUser.nickname} readonly />
 				</div>
 				<br/>
 				<br/>

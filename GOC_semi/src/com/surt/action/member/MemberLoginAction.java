@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.surt.action.Action;
+import com.surt.dto.MemberVO;
 import com.surt.exception.InvalidPasswordException;
 import com.surt.exception.NotFoundIdException;
 import com.surt.service.LoginMemberService;
@@ -28,10 +29,10 @@ private LoginMemberService memberService;
 		System.out.println(id +" : " + pwd);
 		
 		try {
-			memberService.login(id, pwd);
+			MemberVO member = memberService.login(id, pwd);
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", memberService.getMember(id));
+			session.setAttribute("loginUser", member);
 		}catch(NotFoundIdException | InvalidPasswordException e) {
 			request.setAttribute("message", e.getMessage());
 			url = "/member/login_fail";

@@ -99,7 +99,7 @@ text-decoration: none;
                   <li class="nav-item dropdown"><a
                      class="nav-link dropdown-toggle" href="#"
                      id="navbarScrollingDropdown" role="button"
-                     data-bs-toggle="dropdown" aria-expanded="false"> 회원닉네임 </a>
+                     data-bs-toggle="dropdown" aria-expanded="false"> ${sessionScope.loginUser.nickname} </a>
                      <ul class="dropdown-menu"
                         aria-labelledby="navbarScrollingDropdown">
                         <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
@@ -119,7 +119,7 @@ text-decoration: none;
 			<div class="row" style="display : flex; padding-bottom : 20px;">
 					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
 					<div class="col-sm-2" id="account_area">
-						<p>Gyeomii</p>
+						<p>${sessionScope.loginUser.nickname}</p>
 						<div>
 							<p><small>Your personal account</small></p>
 						</div>

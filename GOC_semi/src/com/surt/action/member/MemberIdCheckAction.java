@@ -20,7 +20,7 @@ public class MemberIdCheckAction implements Action {
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String url = null;
 		
-		String id = request.getParameter("id");
+		String id = request.getParameter("user_id");
 		
 		String resultStr = "";
 		

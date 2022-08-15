@@ -187,13 +187,13 @@ li {
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarScrollingDropdown" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 회원닉네임 </a>
+							data-bs-toggle="dropdown" aria-expanded="false"> ${sessionScope.loginUser.nickname} </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarScrollingDropdown">
 								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
 								<li><a class="dropdown-item" href="#">마이페이지</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/login.do">로그아웃</a></li>
+								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/loginForm.do">로그아웃</a></li>
 							</ul></li>
 					</ul>
 				</div>

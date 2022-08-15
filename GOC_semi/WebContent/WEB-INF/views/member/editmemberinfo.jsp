@@ -108,7 +108,7 @@
                         <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
                         <li><a class="dropdown-item" href="#">마이페이지</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/login.do">로그아웃</a></li>
+                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/loginForm.do">로그아웃</a></li>
                      </ul></li>
                </ul>
             </div>
@@ -142,47 +142,54 @@
 			</div>
 			  
 			<div class="col-sm-7" style="margin-top: 0">
-				<form>
+				<form role="form" class="form-horizontal" action="update" method="post">
 				  <h1>Edit Profile <small class="text-muted">회원정보수정</small></h1>
 				  <hr>
-				  <div class="mb-3">
+				  <div class="sm-3">
 				    <label for="formGroupExampleInput" class="form-label">아이디</label>
-				    <input type="text" class="form-control" id="inputId" placeholder="ex)stray2" name="user_id" value=${sessionScope.loginUser.user_id}>
+				    <input type="text" class="form-control" id="inputId" placeholder="ex)stray2" name="user_id" value=${sessionScope.loginUser.user_id} readonly>
 				  </div>
-				  <div class="mb-3">
+				  <div class="sm-3">
 				    <label for="formGroupExampleInput" class="form-label">이  름</label>
 				    <input type="text" class="form-control" id="inputName" placeholder="ex)이민호" name="name" value=${sessionScope.loginUser.name}>
 				  </div>
-				  <div class="mb-3">
-				    <label for="formGroupExampleInput2" class="form-label">닉네임</label>
-				    <input type="text" class="form-control" id="inputNick" placeholder="ex)leeknow" name="nickname" value=${sessionScope.loginUser.nickname}>
+				  <div class="sm-3">
+				  	<div class="row">
+					    <label for="formGroupExampleInput2" class="form-label">닉네임</label>
+				  		<div class="col-sm-10">
+						    <input type="text" class="form-control" id="inputNick" placeholder="ex)leeknow" name="nickname" value=${sessionScope.loginUser.nickname}>
+				  		</div>
+				  		<div class="col-sm-2">
+				  			<button type="button" class="btn btn-primary" onclick="nickCheck_go();">중복확인</button>
+				  		</div>
+				  	</div>
 				  </div>
 				  
 				  <label for="formGroupExampleInput2" class="form-label">이메일</label>
-				  <div class="input-group mb-3">
-				    <input type="text" class="form-control" placeholder="Username" id="inputEmail1" aria-label="Username">
+				  <div class="input-group sm-3">
+				    <input type="text" class="form-control" placeholder="Username" id="inputEmail1" aria-label="Username" name="email">
 				    <span class="input-group-text">@</span>
-				    <input type="text" class="form-control" placeholder="naver.com" id="inputEmail2" aria-label="Server">
+				    <input type="text" class="form-control" placeholder="naver.com" id="inputEmail2" aria-label="Server" name="email">
 				  </div>   
 				
 				  <div class="row">
 				    <label for="formGroupExampleInput2" class="form-label">전화번호</label>
 				    <div class="col">
-				      <input type="text" class="form-control" placeholder="010" aria-label="phone" id="tel1">
+				      <input type="text" class="form-control" placeholder="010" aria-label="phone" id="tel1" name="phone">
 				    </div>
 				    <div class="col">
-				      <input type="text" class="form-control" placeholder="1234" aria-label="first" id="tel2">
+				      <input type="text" class="form-control" placeholder="1234" aria-label="first" id="tel2" name="phone">
 				    </div>
 				    <div class="col">
-				      <input type="text" class="form-control" placeholder="5678" aria-label="second" id="tel3">
+				      <input type="text" class="form-control" placeholder="5678" aria-label="second" id="tel3" name="phone">
 				    </div>
 				  </div>
 				  <br/>
-				  <div class="mb-3">
+				  <div class="sm-3">
 				    <label for="formGroupExampleInput" class="form-label">비밀번호</label>
 				    <input type="text" class="form-control pw" id="inputPw" placeholder="Must be 8-20 characters long." name="password">
 				  </div>
-				  <div class="mb-3">
+				  <div class="sm-3">
 				    <label for="formGroupExampleInput" class="form-label">비밀번호 확인</label>
 				    <input type="text" class="form-control pw" id="inputPwChk" >
 				    <span id="alert-success" style="display: none; color: #00CD2E; font-weight: bold;">비밀번호가 일치합니다.</span>
@@ -190,7 +197,7 @@
 				  </div> 
 				  
 				  <label for="formGroupExampleInput2" class="form-label">주소</label>   
-				  <input type="text" class="form-control" id="formGroupExampleInput2" name="address" placeholder="주소를 입력하세요" value=${sessionScope.loginUser.nickname}>
+				  <input type="text" class="form-control" id="formGroupExampleInput2" name="address" placeholder="주소를 입력하세요" value=${sessionScope.loginUser.address}>
 				  <br/>
 				  <Button type="button" class="btn btn-primary" onclick="update_go()">정보 수정</Button>
 				  <br/>
@@ -220,6 +227,8 @@
 			</div>
 		</div>
 <script>
+var originNick = "${sessionScope.loginUser.nickname}";
+
 $('.pw').focusout(function () {
 	var pw = $("#inputPw").val();
 	var pwChk = $("#inputPwChk").val();
@@ -238,20 +247,50 @@ $('.pw').focusout(function () {
 });
 </script>
 <script>
+var checkedNick = "";
+function nickCheck_go(){
+	//alert("idCheck btn Click");
+	var input_Nick = $('input[name="nickname"]');
 	
-	function update_go(){
-		var chk = $("#chk");
-		var id = $("#inputId").val();
-		var name = $("#inputNick").val();
-		var nick = $("#inputId").val();
-		var email = $("#inputEmail1").val() + $("#inputEmail2").val();
-		var tel = $("#tel1").val() + $("#tel2").val() + $("#tel3").val();
-		var pw = $("#inputPw").val();
-		var pwChk = $("#inputPwChk").val();
-		var addr = $("#inputAddr").val();
-		
-		alert(id + "\n서버문제로 현재 수정이 불가합니다.\n문의는 DM으로 부탁드려요.🙏");
+	if(!input_Nick.val()){
+		alert("닉네임을 입력하세요");
+		input_Nick.focus();
+		return;
 	}
+	
+	$.ajax({
+		url : "nickCheck.do?nickname=" + input_Nick.val().trim(),
+		method : "get",
+		success : function(result){
+			if(result.toUpperCase() == "DUPLICATED" && input_Nick.val() != originNick){
+				alert("중복된 닉네임 입니다.");
+				$('input[name="nickname"]').focus();
+			}else{
+				alert("사용가능한 닉네임 입니다.");
+				checkedNick = input_Nick.val().trim();
+				$('input[name="nickname"]').val(input_Nick.val().trim());
+			}
+		},
+		error : function(error){
+			alert("시스템장애로 가입이 불가합니다.");
+		}
+	});
+}
+
+function update_go(){
+	if($('input[name="nickname"]').val() != originNick){
+		if($('input[name="nickname"]').val() != checkedNick){
+			alert("닉네임 중복체크를 해주세요.");
+			return;
+		}
+	}
+	var form = $('form[role="form"]');
+	form.attr({
+		"method":"post",
+		"action":"update.do"
+	});
+	form.submit();
+}
 </script>
 <script>
 	function upload_go(){

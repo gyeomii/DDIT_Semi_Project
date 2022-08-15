@@ -1,23 +1,23 @@
 package com.surt.command;
 
+import java.util.Arrays;
 import java.util.Date;
 
 import com.surt.dto.MemberVO;
 
-public class MemberRegistCommand {
+public class MemberUpdateCommand {
 	// 사용자 입력 정보
 	private String user_id; // 아이디
 	private String name = "semi"; // 이름
 	private String[] email; // 이메일
 	private String password; // 패스워드
-	private String[] birth; // 생일
 	private String address; // 주소
-	private String nickname;
+	private String nickname;// 닉네임
+	private String[] phone; // 전화번호
 	private String picture = "defaultPicture.jpg";
 
-	private String gender;
-	private String[] phone; // 전화번호
-	private int agree_tos;
+	// 시스템 정보
+	private Date updated_at; // 등록일
 
 	public String getUser_id() {
 		return user_id;
@@ -51,22 +51,6 @@ public class MemberRegistCommand {
 		this.password = password;
 	}
 
-	public String[] getBirth() {
-		return birth;
-	}
-
-	public void setBirth(String[] birth) {
-		this.birth = birth;
-	}
-
-	public String getPicture() {
-		return picture;
-	}
-
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
-
 	public String getAddress() {
 		return address;
 	}
@@ -82,13 +66,21 @@ public class MemberRegistCommand {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-
-	public String getGender() {
-		return gender;
+	
+	public String getPicture() {
+		return picture;
 	}
 
-	public void setGender(String gender) {
-		this.gender = gender;
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+
+	public Date getUpdated_at() {
+		return updated_at;
+	}
+
+	public void setUpdated_at(Date updated_at) {
+		this.updated_at = updated_at;
 	}
 
 	public String[] getPhone() {
@@ -99,39 +91,17 @@ public class MemberRegistCommand {
 		this.phone = phone;
 	}
 
-	public int getAgree_tos() {
-		return agree_tos;
-	}
-
-	public void setAgree_tos(int agree_tos) {
-		this.agree_tos = agree_tos;
-	}
-
-	public Date getRegist_date() {
-		return regist_date;
-	}
-
-	public void setRegist_date(Date regist_date) {
-		this.regist_date = regist_date;
-	}
-
-//시스템 정보
-	private Date regist_date; // 등록일
+	
 
 	public MemberVO toMemberVO() {
 		String phone = "";
 		String email = "";
-		String birth = "";
 
 		for (String data1 : this.phone) {
 			phone += data1;
 		}
 
 		email = this.email[0] + "@" + this.email[1];
-
-		for (String data3 : this.birth) {
-			birth += data3;
-		}
 
 		// MemberVO setting
 		MemberVO member = new MemberVO();
@@ -140,13 +110,12 @@ public class MemberRegistCommand {
 		member.setEmail(email);
 		member.setPhone(phone);
 		member.setAddress(address);
-		member.setBirth(birth);
 		member.setPassword(password);
-		member.setPicture(picture);
 		member.setNickname(nickname);
-		member.setGender(gender);
-		member.setAgree_tos(1);
-		member.setRegist_date(new Date());
+		member.setPicture(picture);
+		member.setUpdated_at(new Date());
+		
 		return member;
 	}
+
 }

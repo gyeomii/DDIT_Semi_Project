@@ -107,7 +107,7 @@
                         <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
                         <li><a class="dropdown-item" href="#">마이페이지</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/login.do">로그아웃</a></li>
+                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/loginForm.do">로그아웃</a></li>
                      </ul></li>
                </ul>
             </div>

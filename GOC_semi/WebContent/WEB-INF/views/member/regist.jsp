@@ -15,8 +15,8 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
 <style type="text/css">
 .starter-template {
@@ -178,11 +178,13 @@
 			<br />
 			<div class="sm-3">
 				<label for="formGroupExampleInput" class="form-label">비밀번호</label>
-				<input type="text" class="form-control" id="pwd" name="password" placeholder="-자리이상을 입력하세요.">
+				<input type="text" class="form-control pw" id="pwd" name="password" placeholder="-자리이상을 입력하세요.">
 			</div>
 			<div class="sm-3">
 				<label for="formGroupExampleInput" class="form-label">비밀번호 확인</label>
-				<input type="text" class="form-control" id="pwdchk">
+				<input type="text" class="form-control pw" id="pwdchk">
+				<span id="alert-success" style="display: none; color: #00CD2E; font-weight: bold;">비밀번호가 일치합니다.</span>
+	    		<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
 			</div>
 			<br>
 			<label for="formGroupExampleInput2" class="form-label">주소</label>
@@ -215,6 +217,23 @@
 		<br>
 	</div>
 <script>
+$('.pw').focusout(function () {
+	var pw = $("#pwd").val();
+	var pwChk = $("#pwdchk").val();
+
+    if ( pw != '' && pwChk == '' ) {
+        null;
+    } else if (pw != "" || pwChk != "") {
+        if (pw == pwChk) {
+        	$("#alert-success").css('display', 'inline-block');
+            $("#alert-danger").css('display', 'none');
+        } else {
+        	$("#alert-success").css('display', 'none');
+            $("#alert-danger").css('display', 'inline-block');
+        }
+    }
+});
+
 var checkedID = "";
 function idCheck_go(){
 	//alert("idCheck btn Click");
@@ -314,7 +333,6 @@ function regist_go(){
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 </html>

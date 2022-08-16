@@ -5,9 +5,11 @@ import java.util.Map;
 
 import com.surt.command.Criteria;
 import com.surt.dto.MemberVO;
+import com.surt.exception.InvalidPasswordException;
+import com.surt.exception.NotFoundIdException;
 
 public interface MemberService {
-
+	
 	// 회원목록조회
 	Map<String, Object> getMemberList(Criteria cri) throws SQLException;
 
@@ -23,4 +25,7 @@ public interface MemberService {
 
 	// 회원탈퇴
 	public void remove(String id) throws Exception;
+
+	//login
+	void login(String id, String pwd) throws NotFoundIdException, InvalidPasswordException,	SQLException;
 }

@@ -10,7 +10,7 @@ public class LogoutAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "/common/loginForm";
+		String url = "redirect:/common/loginForm.do";
 		
 		HttpSession session = request.getSession();
 		session.invalidate();

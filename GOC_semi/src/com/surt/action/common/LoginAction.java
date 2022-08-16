@@ -8,19 +8,18 @@ import com.surt.action.Action;
 import com.surt.dto.MemberVO;
 import com.surt.exception.InvalidPasswordException;
 import com.surt.exception.NotFoundIdException;
-import com.surt.service.LoginMemberService;
+import com.surt.service.MemberService;
 
 public class LoginAction implements Action {
 	
-private LoginMemberService memberService;
-	
-	public void setLoginMemberService(LoginMemberService memberService) {
+	private MemberService memberService;
+	public void setMemberService(MemberService memberService) {
 		this.memberService = memberService;
 	}
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "/member/main";
+		String url = "redirect:/member/main.do";
 		
 		//입력
 		String id = request.getParameter("id");
@@ -29,10 +28,13 @@ private LoginMemberService memberService;
 		System.out.println(id +" : " + pwd);
 		
 		try {
-			MemberVO member = memberService.login(id, pwd);
+			memberService.login(id, pwd);
 			
+			MemberVO member = memberService.getMember(id);
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", member);
+			session.setMaxInactiveInterval(6*60);//6분동안 사용자 요청이 없으면 server가 session 갱신
+			
 		}catch(NotFoundIdException | InvalidPasswordException e) {
 			request.setAttribute("message", e.getMessage());
 			url = "/common/login_fail";

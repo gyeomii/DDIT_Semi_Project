@@ -9,6 +9,8 @@ import com.surt.command.Criteria;
 import com.surt.command.PageMaker;
 import com.surt.dao.MemberDAO;
 import com.surt.dto.MemberVO;
+import com.surt.exception.InvalidPasswordException;
+import com.surt.exception.NotFoundIdException;
 
 public class MemberServiceImpl implements MemberService {
 
@@ -60,5 +62,17 @@ public class MemberServiceImpl implements MemberService {
 	public MemberVO checkNickname(String nickname) throws SQLException {
 		MemberVO member = memberDAO.selectMemberByNickname(nickname);
 		return member;
+	}
+
+	@Override
+	public void login(String id, String pwd) throws NotFoundIdException, InvalidPasswordException, SQLException {
+		MemberVO member = memberDAO.selectMemberById(id);
+
+		if (member == null) {
+			throw new NotFoundIdException();
+		}
+		if (!pwd.equals(member.getPassword())) {
+			throw new InvalidPasswordException();
+		}
 	}
 }

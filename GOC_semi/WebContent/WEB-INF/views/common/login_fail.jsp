@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 <script>
 	alert("${message}")
-	location.href = "loginForm.do";	
+	location.href="<%=request.getContextPath()%>/common/loginForm.do";	
 </script>

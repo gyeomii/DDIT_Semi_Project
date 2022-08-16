@@ -1,0 +1,220 @@
+@charset "UTF-8";
+
+.row { -
+	-bs-gutter-x: -3rem;
+}
+
+body {
+	background-color: gray;
+}
+
+.background-white {
+	background-color: white;
+}
+
+.starter-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.slide-img {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.carousel-control-prev-icon {
+	color: black;
+}
+
+.icon {
+	width: 4vw;
+	height: 4vw;
+	margin-right: 20px;
+	background-position: center;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.container-fluid {
+	width: 80%;
+}
+
+.borad-auther {
+	width: 20%;
+}
+
+.borad-content {
+	width: 70%;
+}
+
+.borad-number {
+	width: 10%;
+}
+
+.populer-board {
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.layout {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.col-sm-4 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img {
+	width: 36vw;
+	height: 15vw;
+	background-position: center;
+	background-size: cover;
+}
+
+footer {
+	position: relative;
+	transform: translateY(-100%);
+}
+
+.footer-fontcolor {
+	color: white;
+}
+
+.footer-surtimg {
+	width: 19vw;
+	height: 6vw;
+	background-position: center;
+	background-size: cover;
+	margin: auto;
+}
+
+.footer-text {
+	display: inline-block;
+}
+
+.footer-fontcolor>ul>li {
+	color: white;
+	list-style: none;
+	padding-left: 0px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border: 0;
+	float: left;
+	text-align: center;
+}
+
+ul.footer-text > li > a {
+	text-decoration: none;
+	color: white;
+}
+
+.footer-text li::after {
+	padding-left: 10px;
+	padding-right: 10px;
+	content: "|"
+}
+
+.footer-text li:last-child::after {
+	content: ""
+}
+
+.member-info {
+	height: 40%;
+}
+
+#logout {
+	float: right;
+	font-size: 14px;
+	width: 4vw;
+	height: 2vw;
+	-webkit-border-radius: 14px;
+	color: #fff;
+	background-color: #bcc8d4;
+	border: none;
+}
+
+.container>div.main {
+	left: 215px;
+	width: 70vw;
+	height: 35vw;
+	padding: 10px 50px 25px 75px;
+}
+
+.container>div.main div.card {
+	margin: 0 5px 5px 0;
+	width: 15vw;
+	border: 1px solid #e3e3e3;
+	overflow: hidden;
+	background-color: #fff;
+	float: left;
+}
+
+.container div.card h3>a {
+	line-height: 20px;
+	color: #460ad3;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.container div.card>div.board>a {
+	display: block;
+	padding: 10px;
+	border-top: 1px solid #e3e3e3;
+	text-decoration: none;
+}
+
+.container div.card>div.board>a.list {
+	height: 35px;
+}
+
+.container div.card>div.board>h3 {
+	height: 35px;
+}
+
+.container div.card>div.board>a.list>p {
+	height: 17px;
+	line-height: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #444444;
+	font-size: 14px;
+}
+
+.container div.card>div.board>a.list>time {
+	float: right;
+	margin-left: 10px;
+	height: 17px;
+	line-height: 18px;
+	color: #a6a6a6;
+	font-size: 11px;
+	letter-spacing: 0;
+}
+
+.container hr {
+	clear: both;
+	width: 100%;
+	height: 0;
+	border: 0;
+}
+
+.container div.card>div.board>a:hover {
+	background-color: #f9f9f9;
+}
+
+.container div.card h3 {
+	padding-left: 10px;
+}

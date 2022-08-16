@@ -178,7 +178,7 @@ ul.imgs li{
 						<div class="form-group">
 							<div class="col-sm-offset-2 col-sm-10">
 								<button type="submit" class="btn btn-default">로그인</button>
-								<button type="button" class="btn btn-link" onclick='location.href="registForm.do"'>회원가입 하러가기</button>
+								<button type="button" class="btn btn-link" onclick='location.href="<%=request.getContextPath()%>/member/registForm.do"'>회원가입 하러가기</button>
 							</div>
 						</div>
 					</form>

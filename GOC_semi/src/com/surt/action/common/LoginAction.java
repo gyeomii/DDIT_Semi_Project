@@ -19,7 +19,7 @@ public class LoginAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "redirect:/member/main.do";
+		String url = "redirect:/common/main.do";
 		
 		//입력
 		String id = request.getParameter("id");

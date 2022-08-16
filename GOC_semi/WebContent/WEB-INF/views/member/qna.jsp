@@ -16,104 +16,59 @@
    crossorigin="anonymous">
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<style type="text/css">
-.starter-template {
-   padding: 40px 15px;
-   text-align: center;
-}
-
-.slide-img {
-   max-width: 40%;
-   min-width: 40%;
-   
-   min-height: 30%;
-   max-height: 30%;
-   
-   margin: 0 auto;
-}
-
-.carousel-control-prev-icon {
-   color: black;
-}
-
-.icon {
-   width: 80px;
-   height: 20%;
-   margin-right: 20px;
-}
-
-.container-fluid {
-   width: 80%;
-}
-.thumb{
- width : 80px;
- height : 80px 
-}
-#account_area{
-  margin-top : 15px
-}
-.profile-picture{
-  margin: 0;
-  text-align: center;
-}
-</style>
+   <link href="<%=request.getContextPath()%>/resources/css/mypage.css" rel="stylesheet">
 </head>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <div class="container-fluid">
-         <div class="icon">
-            <a class="navbar-brand" href="<%=request.getContextPath()%>/member/main.do"><img class="icon"
-               src="<%=request.getContextPath()%>/resources/img/icon.png"></a>
-         </div>
-         <button class="navbar-toggler" type="button"
-            data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-            aria-controls="navbarScroll" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarScroll">
-            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-               style="-bs-scroll-height: 100px; margin-left : 0">
-               <li class="nav-item"><a class="nav-link active"
-                  aria-current="page" href="#">공지사항</a></li>
-
-               <li class="nav-item dropdown"><a
-                  class="nav-link dropdown-toggle" href="#"
-                  id="navbarScrollingDropdown" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false"> 게시판 </a>
-                  <ul class="dropdown-menu"
-                     aria-labelledby="navbarScrollingDropdown">
-                     <li><a class="dropdown-item" href="#">자유게시판</a></li>
-                     <li><a class="dropdown-item" href="#">너성보</a></li>
-                     <li><hr class="dropdown-divider"></li>
-                     <li><a class="dropdown-item" href="#">깐부게시판</a></li>
-                     <li><a class="dropdown-item" href="#">맛집게시판</a></li>
-                  </ul></li>
-            </ul>
-            <div class="icon2">
-				<a class="navbar-brand" href="#"><img class="icon2"
-					src="<%=request.getContextPath()%>/resources/img/궁금해.jpeg"></a>
+<body oncontextmenu='return false'>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+		<div class="container-fluid">
+			<div class="icon" title="Home Page">
+				<div class="icon" onclick="goMainPage('<%=request.getContextPath() %>')"
+					style="background-image: url(<%=request.getContextPath()%>/resources/img/icon.png);"></div>
 			</div>
-            <div class="d-flex">
-               <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-                  style="-bs-scroll-height: 100px;">
-                  <li class="nav-item dropdown"><a
-                     class="nav-link dropdown-toggle" href="#"
-                     id="navbarScrollingDropdown" role="button"
-                     data-bs-toggle="dropdown" aria-expanded="false"> ${sessionScope.loginUser.nickname} </a>
-                     <ul class="dropdown-menu"
-                        aria-labelledby="navbarScrollingDropdown">
-                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
-                        <li><a class="dropdown-item" href="#">마이페이지</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="<%=request.getContextPath()%>/common/logout.do">로그아웃</a></li>
-                     </ul></li>
-               </ul>
-            </div>
-         </div>
-      </div>
-   </nav>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+				aria-controls="navbarScroll" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarScroll">
+				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+					style="-bs-scroll-height: 100px;">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="#">공지사항</a></li>
+
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#"
+						id="navbarScrollingDropdown" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false"> 게시판 </a>
+						<ul class="dropdown-menu"
+							aria-labelledby="navbarScrollingDropdown">
+							<li><a class="dropdown-item" href="#">자유게시판</a></li>
+							<li><a class="dropdown-item" href="#">너성보</a></li>
+							<li><hr class="dropdown-divider"></li>
+							<li><a class="dropdown-item" href="#">깐부게시판</a></li>
+							<li><a class="dropdown-item" href="#">맛집게시판</a></li>
+						</ul></li>
+				</ul>
+				<div class="d-flex">
+					<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+						style="-bs-scroll-height: 100px;">
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#"
+							id="navbarScrollingDropdown" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;"> ${loginUser.user_id} </a>
+							<ul class="dropdown-menu"
+								aria-labelledby="navbarScrollingDropdown">
+								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/common/logout.do">로그아웃</a></li>
+							</ul></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
 
 
 	<div class="container">
@@ -175,6 +130,24 @@
 			  </div>
 			</div>
 		</div>
+		
+	<!-- footer -->
+	<footer class="footer-layout bg-dark" style="padding: 5px;">
+		<div class="footer-fontcolor layout" style="text-align: center;">
+			<div title="너의 성향이 보여" class="footer-surtimg"
+				style="background-image: url(<%=request.getContextPath()%>/resources/img/surt_text.jpg);"></div>
+			<div class="footer-fontcolor layout">
+				<div id="footer-list">
+					<ul class="footer-text">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Support</a></li>
+					</ul>
+				</div>
+				Copyright ⓒ SURT
+			</div>
+		</div>
+	</footer>
 <script>
 	$(document).ready(function(){
 		$("input:checkbox").on('click', function(){
@@ -194,6 +167,7 @@
 		alert(qType + title + content);
 	}
 </script>
+	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

@@ -1,0 +1,97 @@
+@charset "UTF-8";
+.starter-template {
+   padding: 40px 15px;
+   text-align: center;
+}
+
+.slide-img {
+   max-width: 40%;
+   min-width: 40%;
+   
+   min-height: 30%;
+   max-height: 30%;
+   
+   margin: 0 auto;
+}
+
+.carousel-control-prev-icon {
+   color: black;
+}
+
+.icon {
+	width: 4vw;
+	height: 4vw;
+	margin-right: 20px;
+	background-position: center;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.container-fluid {
+   width: 80%;
+}
+.thumb{
+ width : 80px;
+ height : 80px 
+}
+a{
+text-decoration: none;
+}
+#account_area{
+  margin-top : 15px
+}
+.profile-picture{
+  margin: 0;
+  text-align: center;
+}
+
+.footer-fontcolor {
+	color: white;
+}
+
+.footer-surtimg {
+	width: 19vw;
+	height: 6vw;
+	background-position: center;
+	background-size: cover;
+	margin: auto;
+}
+
+.footer-text {
+	display: inline-block;
+}
+
+.footer-fontcolor>ul>li {
+	color: white;
+	list-style: none;
+	padding-left: 0px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border: 0;
+	float: left;
+	text-align: center;
+}
+
+ul.footer-text > li > a {
+	text-decoration: none;
+	color: white;
+}
+
+.footer-text li::after {
+	padding-left: 10px;
+	padding-right: 10px;
+	content: "|"
+}
+
+.footer-text li:last-child::after {
+	content: ""
+}

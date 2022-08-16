@@ -1,4 +1,4 @@
-package com.surt.action.member;
+package com.surt.action.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -6,11 +6,11 @@ import javax.servlet.http.HttpSession;
 
 import com.surt.action.Action;
 
-public class MemberQnAAction implements Action {
+public class LoginFormAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "/member/qna";
+		String url = "/common/loginForm";
 		
 		return url;
 	}

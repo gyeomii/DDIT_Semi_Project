@@ -1,4 +1,4 @@
-package com.surt.action.member;
+package com.surt.action.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -10,7 +10,7 @@ import com.surt.exception.InvalidPasswordException;
 import com.surt.exception.NotFoundIdException;
 import com.surt.service.LoginMemberService;
 
-public class MemberLoginAction implements Action {
+public class LoginAction implements Action {
 	
 private LoginMemberService memberService;
 	
@@ -35,7 +35,7 @@ private LoginMemberService memberService;
 			session.setAttribute("loginUser", member);
 		}catch(NotFoundIdException | InvalidPasswordException e) {
 			request.setAttribute("message", e.getMessage());
-			url = "/member/login_fail";
+			url = "/common/login_fail";
 		}catch(Exception e) {
 			e.printStackTrace();
 			throw e;

@@ -11,7 +11,7 @@
 <script>
 	alert("회원가입에 성공했습니다.\n 로그인 페이지로 이동합니다.");
 	
-	window.location.href = "<%= request.getContextPath()%>/member/loginForm.do";
+	window.location.href = "<%= request.getContextPath()%>/common/loginForm.do";
 </script>
 
 </body>

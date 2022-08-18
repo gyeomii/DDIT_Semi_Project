@@ -74,9 +74,9 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<div class="rounded-circle manPicture"  data-id="${loginUser.user_id }" style="margin-top : 15px; border : solid; width:100px; height:100px" ></div>
 					<div class="col-sm-2" id="account_area">
-						<p>${sessionScope.loginUser.nickname}</p>
+						<p>${loginUser.nickname}</p>
 						<div>
 							<p><small>Your personal account</small></p>
 						</div>
@@ -99,31 +99,31 @@
 				<hr>
 				<div class="form-group" >
 					<label for="inputId">ID</label>
-					<input type="text" class="form-control" id="inputId" value=${sessionScope.loginUser.user_id} readonly />
+					<input type="text" class="form-control" id="inputId" value="${loginUser.user_id}" readonly="readonly"  />
 				</div>
 
 				<div class="form-group" >
 					<label for="inputName">Name</label>
-					<input type="text" class="form-control" id="inputName" value=${sessionScope.loginUser.name} readonly />
-				</div>
-
-				<div class="form-group" >
-					<label for="inputEmail">E-mail</label>
-					<input type="text" class="form-control" id="inputEmail" value=${sessionScope.loginUser.email} readonly />
-				</div>
-				<div class="form-group" >
-					<label for="inputPhone">Phone</label>
-					<input type="text" class="form-control" id="inputPhone" value=${sessionScope.loginUser.phone} readonly />
-				</div>
-
-				<div class="form-group" >
-					<label for="inputAddress">Address</label>
-					<input type="text" class="form-control" id="inputAddress" value=${sessionScope.loginUser.address} readonly />
+					<input type="text" class="form-control" id="inputName" value="${loginUser.name}" readonly="readonly"  />
 				</div>
 
 				<div class="form-group" >
 					<label for="inputNickname">Nickname</label>
-					<input type="text" class="form-control" id="inputNickname" value=${sessionScope.loginUser.nickname} readonly />
+					<input type="text" class="form-control" id="inputNickname" value="${loginUser.nickname}" readonly="readonly"  />
+				</div>
+
+				<div class="form-group" >
+					<label for="inputEmail">E-mail</label>
+					<input type="text" class="form-control" id="inputEmail" value="${loginUser.email}" readonly="readonly"  />
+				</div>
+				<div class="form-group" >
+					<label for="inputPhone">Phone</label>
+					<input type="text" class="form-control" id="inputPhone" value="${loginUser.phone}" readonly="readonly"  />
+				</div>
+
+				<div class="form-group" >
+					<label for="inputAddress">Address</label>
+					<input type="text" class="form-control" value="${loginUser.address}" id="inputAddress" readonly="readonly" />
 				</div>
 				<br/>
 				<br/>

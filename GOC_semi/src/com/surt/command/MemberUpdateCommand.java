@@ -1,6 +1,5 @@
 package com.surt.command;
 
-import java.util.Arrays;
 import java.util.Date;
 
 import com.surt.dto.MemberVO;
@@ -11,11 +10,11 @@ public class MemberUpdateCommand {
 	private String name = "semi"; // 이름
 	private String[] email; // 이메일
 	private String password; // 패스워드
-	private String address; // 주소
+	private String[] address; // 주소
 	private String nickname;// 닉네임
 	private String[] phone; // 전화번호
 	private String picture = "defaultPicture.jpg";
-	private String mbti = "mbti";
+	private String mbti = "cute";
 	// 시스템 정보
 	private Date updated_at; // 등록일
 
@@ -51,11 +50,11 @@ public class MemberUpdateCommand {
 		this.password = password;
 	}
 
-	public String getAddress() {
+	public String[] getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(String[] address) {
 		this.address = address;
 	}
 
@@ -102,9 +101,14 @@ public class MemberUpdateCommand {
 	public MemberVO toMemberVO() {
 		String phone = "";
 		String email = "";
-
+		String address = "";
+		
 		for (String data1 : this.phone) {
 			phone += data1;
+		}
+
+		for (String data2 : this.address) {
+			address += data2;
 		}
 
 		email = this.email[0] + "@" + this.email[1];
@@ -118,6 +122,7 @@ public class MemberUpdateCommand {
 		member.setAddress(address);
 		member.setPassword(password);
 		member.setNickname(nickname);
+		member.setMbti(mbti);
 		member.setPicture(picture);
 		member.setUpdated_at(new Date());
 		

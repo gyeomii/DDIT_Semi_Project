@@ -2,6 +2,7 @@ package com.surt.action.member;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.surt.action.Action;
 import com.surt.dto.MemberVO;
@@ -17,7 +18,7 @@ public class MemberGetMbtiAction implements Action {
 
    @Override
    public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-      String url="redirect:/member/tendency.do";
+      String url="/member/getMbti_success";
       
       String m = request.getParameter("m");
       String b = request.getParameter("b");
@@ -30,13 +31,19 @@ public class MemberGetMbtiAction implements Action {
       // 입력
       try {
          request.setCharacterEncoding("utf-8");
-         MemberVO member = memberService.getMember(id);
+         MemberVO oldMember = memberService.getMember(id);
          
-         member.setMbti(mbti);
+         oldMember.setMbti(mbti);
          
-         System.out.println(member.getMbti());
+         System.out.println(oldMember.getMbti());
          // 처리
-         memberService.modify(member);
+         memberService.modify(oldMember);
+         
+         MemberVO member = memberService.getMember(id);
+         HttpSession session = request.getSession();
+         
+         session.setAttribute("loginUser", member);
+         
 
       } catch (Exception e) {
          e.printStackTrace();

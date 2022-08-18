@@ -74,7 +74,7 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<div class="rounded-circle manPicture"  data-id="${loginUser.user_id }" style="margin-top : 15px; border : solid; width:100px; height:100px" ></div>
 					<div class="col col-sm-2" id="account_area">
 						<p>${sessionScope.loginUser.nickname}</p>
 						<div>
@@ -97,14 +97,14 @@
 			<div class="col-sm-10" style="margin-top: 0">
 				<h1>1 : 1 문의하기 <small class="text-muted">Q & A</small></h1>
 				<hr>
-			
+			<form action="qnaRegist.do" method="post" role="form" class="form-horizontal"> 
 				<div class="input-group mb-3">
 				  <label class="input-group-text" for="inputGroupSelect01">문의유형</label>
 				  <select class="form-select" id="inputGroupSelect01" name="qType">
 				    <option selected></option>
-				    <option value="a">건의사항</option>
-				    <option value="b">사용자 신고</option>
-				    <option value="c">버그 제보</option>
+				    <option value="건의사항">건의사항</option>
+				    <option value="사용자신고">사용자 신고</option>
+				    <option value="버그제보">버그 제보</option>
 				    <option value="none">추가사항은 DM으로 문의해주세요🙏</option>
 				  </select>
 				 <input type="text" class="form-control" aria-label="title" placeholder="제목" name="title">
@@ -120,8 +120,9 @@
 				    <input class="form-check-input mt-0" type="checkbox" value="0" aria-label="Checkbox" name="chk">
 				  </div>
 				  <div class="form-control" aria-label="Text input with checkbox">(필수) 개인정보 수집, 이용동의 <a href="#">전문보기</a></div>
-				  <button class="btn btn-outline-secondary btn-warning" id="regist" type="button" onclick="qna_go()" style="color : white">문의 등록</button>
+				  <input class="btn btn-outline-secondary btn-warning" type="submit" style="color : white" value="문의 등록"/>
 				</div>
+			</form>
 				<br/>
 				<br/>
 				<br/>
@@ -167,7 +168,13 @@
 		alert(qType + title + content);
 	}
 </script>
-	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
+<script>
+	window.onload=function(){
+		MemberPictureThumb("<%=request.getContextPath()%>");
+	}
+</script>
+
+<script src="<%=request.getContextPath()%>/resources/js/member.js"></script>
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

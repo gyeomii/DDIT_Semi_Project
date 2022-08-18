@@ -19,43 +19,11 @@ public class MemberDAOImpl implements MemberDAO{
 	}
 
 	@Override
-	public List<MemberVO> selectMemberList(Criteria cri) throws SQLException {
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-			int offset = cri.getStartRowNum();
-			int limit = cri.getPerPageNum();
-			RowBounds rowBounds = new RowBounds(offset, limit);
-			
-			List<MemberVO> memberList = session.selectList("Member-Mapper.selectMemberList", cri, rowBounds);
-			return memberList;
-		}catch(Exception e) {
-			//에러처리
-			throw e;
-		}finally {
-			if(session != null)session.close();
-		}	
-	}
-
-	@Override
 	public MemberVO selectMemberById(String id) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			MemberVO member=session.selectOne("Member-Mapper.selectMemberById",id);			
 			return member;			
-		}catch(Exception e) {
-			//에러처리
-			throw e;
-		}finally {
-			if(session != null)session.close();
-		}
-	}
-	
-	@Override
-	public int selectMemberListCount(Criteria cri) throws SQLException {
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-			int count = session.selectOne("Member-Mapper.selectMemberListCount", cri);
-			return count;
 		}catch(Exception e) {
 			//에러처리
 			throw e;

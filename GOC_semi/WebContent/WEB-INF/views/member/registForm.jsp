@@ -43,49 +43,37 @@
 }
 
 .container-fluid {
-	width: 80%;
+	width: 60%;
 }
 </style>
 
 </head>
 <body>
-	<script type="text/javascript">
-		/* 
-		function fun() {  
-			
-			  var id = document.getElementById("id").value;
-			  var name = document.getElementById("name").value;
-			  var nickname = document.getElementById("nickname").value;
-			  
-		 	  var username = document.getElementById("username").value;
-			  var server = document.getElementById("server").value;
-			  
-			  var p1 = document.getElementById("mid").value 
-			  var p2 = document.getElementById("end").value;
-			  
-			  var year = documet.getElementById("year").value;
-			  var mon = documet.getElementById("mon").value;
-			  var day = documet.getElementById("day").value;
-			  
-			
-			  
-			   alert ("id : " + id);
-			    alert ("name : " + name);
-			   alert ("nickname : " + nickname);
-			   alert ("email : " + username +"@"+server);  
-			   alert ("phone : 010 - " + p1 + " - " + p2);
-			
-			   
-		 }  
-		 */
-	</script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+    function zip() {
+        new daum.Postcode({
+            oncomplete: function(data) {
 
-
+                var addr = ''; // 주소 변수
+                
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+                document.getElementById('post').value = data.zonecode;
+                document.getElementById("addr").value = addr;
+                document.getElementById("detailAddr").focus();
+            }
+        }).open();
+    }
+</script>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark stiky-top">
 		<div class="container-fluid">
 			<div class="icon">
-				<a class="navbar-brand" href="<%=request.getContextPath()%>/member/loginForm.do"><img class="icon" src="<%=request.getContextPath()%>/resources/img/icon.png"></a>
+				<a class="navbar-brand" href="<%=request.getContextPath()%>/common/loginForm.do"><img class="icon" src="<%=request.getContextPath()%>/resources/img/icon.png"></a>
 			</div>
 		</div>
 	</nav>
@@ -125,6 +113,7 @@
 				  <div class="col-sm-2">
 					<button type="button" class="btn btn-primary" onclick="nickCheck_go();">중복확인</button>
 				  </div>
+				</div>
 			</div>
 			<br> <label for="formGroupExampleInput2" class="form-label">이메일</label>
 			<div class="input-group mb-3">
@@ -147,33 +136,9 @@
 			</div>
 			<br />
 	
-	
-			<div class="row">
-				<label for="formGroupExampleInput2" class="form-label">생년월일</label>
-				<div class="col">
-					<input type="text" class="form-control" placeholder="ex)1998" id="year" name="birth">
-				</div>
-				<div class="col-sm-3">
-					<label class="visually-hidden" for="specificSizeSelect">Preference</label>
-					<select class="form-select" id="mon" name="birth">
-						<option selected>월</option>
-						<option value="01">1</option>
-						<option value="02">2</option>
-						<option value="03">3</option>
-						<option value="04">4</option>
-						<option value="05">5</option>
-						<option value="06">6</option>
-						<option value="07">7</option>
-						<option value="08">8</option>
-						<option value="09">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
-					</select>
-				</div>
-				<div class="col">
-					<input type="text" class="form-control" placeholder="25" aria-label="day" name="birth">
-				</div>
+			<div class="sm-3">
+			    <label class="form=lable" for="input_bir">생년월일</label>
+			       <input type="date" class="form-control" id="input_bir" name="birth" >
 			</div>
 			<br />
 			<div class="sm-3">
@@ -186,10 +151,20 @@
 				<span id="alert-success" style="display: none; color: #00CD2E; font-weight: bold;">비밀번호가 일치합니다.</span>
 	    		<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
 			</div>
-			<br>
-			<label for="formGroupExampleInput2" class="form-label">주소</label>
-			<input type="text" class="form-control" id="address" name="address" placeholder="주소를 입력하세요">
-			<br>
+			
+			<div class="sm-3">
+				<label for="input_addr" class="form-label">주소</label><br/>
+				
+				<div class="input-group">
+					<input type="text" id="post" placeholder="우편번호" class="form-control" >
+					<input type="button" onclick="zip()" value="우편번호 찾기" class="form-control btn btn-primary" >
+				</div>
+				<br>
+				<div class="input-group">
+					<input type="text" id="addr" placeholder="주소" class="form-control" name="address">
+					<input type="text" id="detailAddr" placeholder="상세주소" class="form-control" name="address">
+				</div>
+			</div>
 	
 			<div class="sm-3">
 				<label class="form-label">성별</label><br />
@@ -216,6 +191,8 @@
 		<br>
 		<br>
 	</div>
+	
+
 <script>
 $('.pw').focusout(function () {
 	var pw = $("#pwd").val();

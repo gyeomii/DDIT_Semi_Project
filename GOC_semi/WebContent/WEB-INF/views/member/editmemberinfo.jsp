@@ -22,6 +22,28 @@
 </head>
 
 <body oncontextmenu='return false'>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+    function zip() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+
+                var addr = ''; // 주소 변수
+                
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+                document.getElementById('post').value = data.zonecode;
+                document.getElementById("addr").value = addr;
+                document.getElementById("detailAddr").focus();
+            }
+        }).open();
+    }
+</script>
+
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container-fluid">
 			<div class="icon" title="Home Page">
@@ -76,7 +98,7 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display : flex; padding-bottom : 20px;">
-					<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" class="rounded-circle thumb" style="margin-top : 15px; border : solid">
+					<div class="rounded-circle manPicture"  data-id="${loginUser.user_id }" style="margin-top : 15px; border : solid; width:100px; height:100px" ></div>
 					<div class="col col-sm-2" id="account_area">
 						<p>${sessionScope.loginUser.nickname}</p>
 						<div>
@@ -103,17 +125,17 @@
 				  <hr>
 				  <div class="sm-3">
 				    <label for="formGroupExampleInput" class="form-label">아이디</label>
-				    <input type="text" class="form-control" id="inputId" placeholder="ex)stray2" name="user_id" value=${sessionScope.loginUser.user_id} readonly>
+				    <input type="text" class="form-control" id="inputId" placeholder="ex)stray2" name="user_id" value="${loginUser.user_id}" readonly>
 				  </div>
 				  <div class="sm-3">
 				    <label for="formGroupExampleInput" class="form-label">이  름</label>
-				    <input type="text" class="form-control" id="inputName" placeholder="ex)이민호" name="name" value=${sessionScope.loginUser.name}>
+				    <input type="text" class="form-control" id="inputName" placeholder="ex)이민호" name="name" value="${loginUser.name}">
 				  </div>
 				  <div class="sm-3">
 				  	<div class="row">
 					    <label for="formGroupExampleInput2" class="form-label">닉네임</label>
 				  		<div class="col-sm-10">
-						    <input type="text" class="form-control" id="inputNick" placeholder="ex)leeknow" name="nickname" value=${sessionScope.loginUser.nickname}>
+						    <input type="text" class="form-control" id="inputNick" placeholder="ex)leeknow" name="nickname" value="${loginUser.nickname}">
 				  		</div>
 				  		<div class="col-sm-2">
 				  			<button type="button" class="btn btn-primary" onclick="nickCheck_go();">중복확인</button>
@@ -152,14 +174,21 @@
 	    			<span id="alert-danger" style="display: none; color: #d92742; font-weight: bold; ">비밀번호가 일치하지 않습니다.</span>
 				  </div> 
 				  
-				  <label for="formGroupExampleInput2" class="form-label">주소</label>   
-				  <input type="text" class="form-control" id="formGroupExampleInput2" name="address" placeholder="주소를 입력하세요" value=${sessionScope.loginUser.address}>
+				<div class="sm-3">
+					<label for="input_addr" class="form-label">주소</label><br/>
+					
+					<div class="input-group">
+						<input type="text" id="post" placeholder="우편번호" class="form-control" >
+						<input type="button" onclick="zip()" value="우편번호 찾기" class="form-control btn btn-primary" >
+					</div>
+					<br>
+					<div class="input-group">
+						<input type="text" id="addr" placeholder="주소" class="form-control" name="address">
+						<input type="text" id="detailAddr" placeholder="상세주소" class="form-control" name="address">
+					</div>
+				</div>
 				  <br/>
 				  <Button type="button" class="btn btn-primary" onclick="update_go()">정보 수정</Button>
-				  <br/>
-				  <br/>
-				  <br/>
-				  <br/>
 				  <br/>
 				  <br/>
 				  <br/>

@@ -18,25 +18,7 @@ public class MemberServiceImpl implements MemberService {
 	public void setMemberDAO(MemberDAO memberDAO) {
 		this.memberDAO = memberDAO;
 	}
-	
-	@Override
-	public Map<String,Object> getMemberList(Criteria cri) throws SQLException {
-		
-		Map<String,Object> dataMap =null;
-		
-		//처리.......
-		List<MemberVO> memberList = memberDAO.selectMemberList(cri);
-		
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(memberDAO.selectMemberListCount(cri));
-		
-		dataMap = new HashMap<String,Object>();
-		dataMap.put("memberList", memberList);
-		dataMap.put("pageMaker",pageMaker);
-		
-		return dataMap;
-	}
+
 
 	@Override
 	public MemberVO getMember(String id) throws SQLException {

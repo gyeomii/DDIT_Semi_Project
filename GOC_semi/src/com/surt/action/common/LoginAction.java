@@ -39,6 +39,9 @@ public class LoginAction implements Action {
 			
 			MemberVO member = memberService.getMember(id);
 			HttpSession session = request.getSession();
+			
+			System.out.println(member.getAddress());
+			
 			session.setAttribute("loginUser", member);
 			session.setMaxInactiveInterval(10*60);//6분동안 사용자 요청이 없으면 server가 session 갱신
 			

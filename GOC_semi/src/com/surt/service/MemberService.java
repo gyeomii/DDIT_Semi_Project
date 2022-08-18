@@ -9,10 +9,6 @@ import com.surt.exception.InvalidPasswordException;
 import com.surt.exception.NotFoundIdException;
 
 public interface MemberService {
-	
-	// 회원목록조회
-	Map<String, Object> getMemberList(Criteria cri) throws SQLException;
-
 	// 회원상세조회
 	MemberVO getMember(String id) throws SQLException;
 	MemberVO checkNickname(String nickname)throws SQLException;

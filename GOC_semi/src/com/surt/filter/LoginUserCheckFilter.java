@@ -58,7 +58,7 @@ public class LoginUserCheckFilter implements Filter{
 			
 			String queryString = httpReq.getQueryString();
 			if(queryString != null) {
-				retUrl += "?" + URLEncoder.encode(queryString, "urf-8");
+				retUrl += "?" + URLEncoder.encode(queryString, "utf-8");
 			}
 			
 			httpReq.setAttribute("viewName", "redirect:/common/loginForm.do?error=-1&retUrl=" + retUrl);

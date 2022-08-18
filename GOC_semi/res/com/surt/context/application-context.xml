@@ -9,4 +9,12 @@
 		<property name="memberDAO" ref-value="memberDAO"/>
 	</bean>
 	
+	<bean id="questionDAO" class="com.surt.dao.QuestionDAOImpl">
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory"/>
+	</bean>
+	
+	<bean id="questionService" class="com.surt.service.QuestionServiceImpl">
+		<property name="questionDAO" ref-value="questionDAO"/>
+	</bean>
+	
 </beans>

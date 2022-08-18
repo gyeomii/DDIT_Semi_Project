@@ -9,10 +9,6 @@ import com.surt.command.Criteria;
 import com.surt.dto.MemberVO;
 
 public interface MemberDAO {
-	// 회원목록 조회
-	List<MemberVO> selectMemberList(Criteria cri)throws SQLException;
-	// 일반 리스트 전체 개수
-	int selectMemberListCount(Criteria cri) throws SQLException;
 	// 회원 검색
 	MemberVO selectMemberById(String id)throws SQLException;
 	MemberVO selectMemberByNickname(String nickname)throws SQLException;

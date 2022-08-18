@@ -23,7 +23,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container-fluid">
 			<div class="icon" title="Home Page">
-				<div class="icon" onclick="goMainPage('<%=request.getContextPath() %>')"
+				<div class="icon" onclick="goMainPage('<%=request.getContextPath()%>')"
 					style="background-image: url(<%=request.getContextPath()%>/resources/img/icon.png);"></div>
 			</div>
 			<button class="navbar-toggler" type="button"
@@ -36,7 +36,7 @@
 				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 					style="-bs-scroll-height: 100px;">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">공지사항</a></li>
+						aria-current="page" href="<%=request.getContextPath()%>/post/noticeBoard.do">공지사항</a></li>
 
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -44,11 +44,12 @@
 						data-bs-toggle="dropdown" aria-expanded="false"> 게시판 </a>
 						<ul class="dropdown-menu"
 							aria-labelledby="navbarScrollingDropdown">
-							<li><a class="dropdown-item" href="#">자유게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/freeBoard.do">자유게시판</a></li>
 							<li><a class="dropdown-item" href="#">너성보</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">깐부게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/gganboo.do">깐부게시판</a></li>
 							<li><a class="dropdown-item" href="#">맛집게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/sikdang/list.do">식당리스트</a></li>
 						</ul></li>
 				</ul>
 				<div class="d-flex">

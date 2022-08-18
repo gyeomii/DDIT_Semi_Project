@@ -14,7 +14,7 @@ public class MemberRegistCommand {
 	private String[] address; // 주소
 	private String nickname;
 	private String picture = "defaultPicture.jpg";
-	private String mbti = "cute";
+	private String mbti = "CUTE";
 
 
 	private String gender;

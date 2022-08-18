@@ -30,8 +30,8 @@ public class QuestionServiceImpl implements QuestionService {
 		return questionList;
 	}
 	@Override
-	public QuestionVO getQuestion(String id) throws SQLException {
-		QuestionVO question = questionDAO.selectQuestionById(id);
+	public QuestionVO getQuestion(int idx) throws SQLException {
+		QuestionVO question = questionDAO.selectQuestionByIdx(idx);
 		return question;
 	}
 	@Override

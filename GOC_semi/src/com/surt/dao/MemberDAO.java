@@ -19,4 +19,6 @@ public interface MemberDAO {
 	//회원 삭제
 	public void deleteMember(String id) throws SqlSessionException;
 	
+	int selectMBTI(String mbti) throws SqlSessionException;
+	
 }

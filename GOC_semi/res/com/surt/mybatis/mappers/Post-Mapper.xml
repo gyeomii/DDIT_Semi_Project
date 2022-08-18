@@ -1,0 +1,141 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Post-Mapper">
+	<sql id="search">
+		<if test="searchType == 't'.toString()">
+			and title like '%'||#{keyword}||'%'
+		</if>
+		<if test="searchType == 'u'.toString()">
+			and user_idx like '%'||#{keyword}||'%'
+		</if>
+	</sql>
+
+	<select id="selectGganbooPostList" resultType="post">
+		select a.post_id,
+		a.title, a.hit_count,a.post_content,a.post_add_date, b.nickname
+		from
+		post a,member b
+		where a.category = 3
+		and a.user_idx = b.user_idx
+		order by
+		a.post_add_date desc
+	</select>
+
+	<select id="selectGganbooPostListCount" resultType="int">
+		select
+		count(*)
+		from post
+		where category = 3
+	</select>
+
+	<update id="postInsert" parameterType="post">
+		insert into
+		post
+		(post_id,user_idx, title,
+		post_content,liked,hit_count,category,post_add_date)
+		values(#{post_id},#{user_idx},#{title},#{post_content},#{liked},#{hit_count},#{category},sysdate)
+	</update>
+
+	<select id="selectNoticePostList" resultType="post">
+		select
+		*
+		from post
+		where post_id is not null
+		and category = 1
+		order by post_add_date
+		desc
+	</select>
+	
+	<select id="selectMemberPostList" parameterType="int" resultType="post">
+		select
+		*
+		from post
+		where user_idx = #{user_idx}
+		order by post_add_date
+		desc
+	</select>
+	
+	<select id="selectNoticePostListCount" resultType="int">
+		select
+		count(*)
+		from post
+		where post_id is not null
+		and category = 1
+		<include refid="search" />
+	</select>
+	<select id="selectNoticePostByTitle" parameterType="str"
+		resultType="post">
+		select
+		*
+		from post
+		where title=#{title}
+		and category = 1
+	</select>
+
+	<update id="insertNoticePost" parameterType="post">
+		insert into
+		post(post_id,user_idx, title, post_content, category)
+		values(POST_ID_COUNT.nextVal,#{user_idx},#{title},#{post_content},1)
+	</update>
+
+
+	<select id="selectFreePostList" resultType="post">
+		select
+		*
+		from post
+		where post_id is not null
+		and category = 2
+		<include refid="search" />
+		order by post_add_date desc
+	</select>
+	
+	<select id="selectFreePostListCount" resultType="int">
+		select
+		count(*)
+		from post
+		where post_id is not null
+		and category = 2
+		<include refid="search" />
+	</select>
+	
+	<select id="selectPostById" parameterType="int"
+		resultType="post">
+		select
+		*
+		from post
+		where post_id=#{id}
+	</select>
+
+	<update id="insertFreePost" parameterType="post">
+		insert into
+		post(post_id,user_idx, title, post_content, category)
+		values(POST_ID_COUNT.nextVal, #{user_idx},#{title},#{post_content},2)
+	</update>
+
+	<update id="updatePost" parameterType="post">
+		update post
+		set
+		title=#{title},post_content=#{post_content},post_mod_date='sysdate'
+
+		where post_id=#{post_id}
+	</update>
+
+	<update id="deletePost" parameterType="str">
+		delete
+		from post
+		where post_id=#{post_id}
+	</update>
+
+	<select id="selectAllPopularPostList" resultType="post">
+		select
+		*
+		from post
+		where post_id is not null
+		order by liked desc
+	</select>
+
+
+</mapper>

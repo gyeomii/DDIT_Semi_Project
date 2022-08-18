@@ -29,36 +29,58 @@ body {
 .icon {
 	width: 4vw;
 	height: 4vw;
-	margin-right: 20px;
+	min-width: 60px;
+	min-height: 60px;
 	background-position: center;
-	background-size: cover;
+	background-size: contain;
 	cursor: pointer;
+	margin-right: 20px;
+	cursor: pointer;
+	background-size: contain;
+	background-position: center;
+	min-height: 60px;
+	min-width: 60px;
 }
 
 .container-fluid {
 	width: 80%;
 }
 
-.borad-auther {
-	width: 20%;
-}
-
-.borad-content {
-	width: 70%;
-}
-
 .borad-number {
 	width: 10%;
+	text-align: center;
 }
 
-.populer-board {
-	padding-left: 5%;
-	padding-right: 5%;
+.borad-auther {
+	width: 15%;
+	text-align: center;
+}
+
+.borad-title {
+	width: 45%;
+}
+
+.borad-time {
+	width: 10%;
+	text-align: center;
+}
+.borad-hit {
+	width: 10%;
+	text-align: center;
+}
+.borad-liked {
+	width: 10%;
+	text-align: center;
+}
+
+th[class='borad-number'] ::after {
+	content: "|"
 }
 
 .layout {
 	margin-left: 10%;
 	margin-right: 10%;
+	padding: 0 6% 0 2%;
 }
 
 .col-sm-4 {
@@ -76,7 +98,6 @@ body {
 
 footer {
 	position: relative;
-	transform: translateY(-100%);
 }
 
 .footer-fontcolor {
@@ -115,7 +136,7 @@ li {
 	text-align: center;
 }
 
-ul.footer-text > li > a {
+ul.footer-text>li>a {
 	text-decoration: none;
 	color: white;
 }
@@ -137,8 +158,8 @@ ul.footer-text > li > a {
 #logout {
 	float: right;
 	font-size: 14px;
-	width: 4vw;
-	height: 2vw;
+	width: 70px;
+	height: 30px;
 	-webkit-border-radius: 14px;
 	color: #fff;
 	background-color: #bcc8d4;
@@ -146,19 +167,19 @@ ul.footer-text > li > a {
 }
 
 .container>div.main {
-	left: 215px;
 	width: 70vw;
-	height: 35vw;
-	padding: 10px 50px 25px 75px;
+	margin: auto;
+	height: 465px;
 }
 
 .container>div.main div.card {
-	margin: 0 5px 5px 0;
-	width: 15vw;
+	margin: 0.1%;
+	width: 49.8%;
 	border: 1px solid #e3e3e3;
 	overflow: hidden;
 	background-color: #fff;
 	float: left;
+	min-width: 340px;
 }
 
 .container div.card h3>a {
@@ -217,4 +238,28 @@ ul.footer-text > li > a {
 
 .container div.card h3 {
 	padding-left: 10px;
+}
+
+.mylist {
+	width: 25%;
+	border: 1px solid #E4E8EB
+}
+
+.mylist:hover {
+	background-color: #e3ebee;
+	border: #2f3030;
+}
+
+td>a {
+	text-decoration: none;
+	color: black;
+	overflow: hidden;
+}
+
+td>a:hover {
+	color: gray;
+}
+
+a>p {
+	overflow: hidden;
 }

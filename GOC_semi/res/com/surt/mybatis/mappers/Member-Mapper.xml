@@ -42,5 +42,12 @@
 		from sikdangmap
 	</select>
 	
+		<select id="selectMBTI" parameterType="str"
+		resultType="int">
+		select count(mbti)
+		from member
+		where mbti = #{mbti}
+	</select>
+	
 	
 </mapper>

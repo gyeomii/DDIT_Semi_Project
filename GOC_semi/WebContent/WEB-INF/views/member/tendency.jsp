@@ -24,7 +24,7 @@
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container-fluid">
 			<div class="icon" title="Home Page">
-				<div class="icon" onclick="goMainPage('<%=request.getContextPath() %>')"
+				<div class="icon" onclick="goMainPage('<%=request.getContextPath()%>')"
 					style="background-image: url(<%=request.getContextPath()%>/resources/img/icon.png);"></div>
 			</div>
 			<button class="navbar-toggler" type="button"
@@ -37,7 +37,7 @@
 				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 					style="-bs-scroll-height: 100px;">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">공지사항</a></li>
+						aria-current="page" href="<%=request.getContextPath()%>/post/noticeBoard.do">공지사항</a></li>
 
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -45,11 +45,12 @@
 						data-bs-toggle="dropdown" aria-expanded="false"> 게시판 </a>
 						<ul class="dropdown-menu"
 							aria-labelledby="navbarScrollingDropdown">
-							<li><a class="dropdown-item" href="#">자유게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/freeBoard.do">자유게시판</a></li>
 							<li><a class="dropdown-item" href="#">너성보</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">깐부게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/gganboo.do">깐부게시판</a></li>
 							<li><a class="dropdown-item" href="#">맛집게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/sikdang/list.do">식당리스트</a></li>
 						</ul></li>
 				</ul>
 				<div class="d-flex">
@@ -109,8 +110,8 @@
 								<select class="form-select" id="floatingSelectGrid"
 									aria-label="Floating label select example" name="m">
 									<option selected value="c">대덕의 인싸? 아싸?</option>
-									<option value="e">E 내가 바로 대덕의 인싸~♬</option>
-									<option value="i">I 사람보단.. 노트북이 좋아..</option>
+									<option value="E">E 내가 바로 대덕의 인싸~♬</option>
+									<option value="I">I 사람보단.. 노트북이 좋아..</option>
 								</select> <label for="floatingSelectGrid">E(외향적)vsI(내향적)</label>
 							</div>
 						</div>
@@ -119,8 +120,8 @@
 								<select class="form-select" id="floatingSelectGrid"
 									aria-label="Floating label select example" name="b">
 									<option selected value="u">어휴 생각하지 말자~!</option>
-									<option value="s">S . . .</option>
-									<option value="n">N 생각을 안 하는 생각을 하는 생각을 하는 생각을..</option>
+									<option value="S">S . . .</option>
+									<option value="N">N 생각을 안 하는 생각을 하는 생각을 하는 생각을..</option>
 								</select> <label for="floatingSelectGrid">S(현실적)vsN(직관적)</label>
 							</div>
 						</div>
@@ -129,8 +130,8 @@
 								<select class="form-select" id="floatingSelectGrid"
 									aria-label="Floating label select example" name="t">
 									<option selected value="t">나 우울해서 염색을 했어ㅠㅠ</option>
-									<option value="t">T 헐 대박! 무슨 색으로 했어?</option>
-									<option value="f">F 왜 우울해 ㅠㅠㅠ?무슨일이야 ㅠㅠㅠ</option>
+									<option value="T">T 헐 대박! 무슨 색으로 했어?</option>
+									<option value="F">F 왜 우울해 ㅠㅠㅠ?무슨일이야 ㅠㅠㅠ</option>
 								</select> <label for="floatingSelectGrid">T(머리)vsF(가슴)</label>
 							</div>
 						</div>
@@ -139,8 +140,8 @@
 								<select class="form-select" id="floatingSelectGrid"
 									aria-label="Floating label select example" name="i">
 									<option selected value="e">여행을 갈 때 나는?</option>
-									<option value="p">P 무조건 즉흥여행이지~</option>
-									<option value="j">J x시에 oo를 가서~</option>
+									<option value="P">P 무조건 즉흥여행이지~</option>
+									<option value="J">J x시에 oo를 가서~</option>
 								</select> <label for="floatingSelectGrid">P(즉흥적)vsJ(계획적)</label>
 							</div>
 						</div>

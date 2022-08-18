@@ -9,6 +9,7 @@
 		<property name="memberDAO" ref-value="memberDAO"/>
 	</bean>
 	
+	<!-- question -->
 	<bean id="questionDAO" class="com.surt.dao.QuestionDAOImpl">
 		<property name="sqlSessionFactory" ref-value="sqlSessionFactory"/>
 	</bean>
@@ -17,6 +18,7 @@
 		<property name="questionDAO" ref-value="questionDAO"/>
 	</bean>
 	
+	<!-- sikdang -->
 	<bean id="sikdangDAO" class="com.surt.dao.SikdangDAOImpl" >
 		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
 	</bean>
@@ -25,5 +27,13 @@
 		<property name="sikdangDAO" ref-value="sikdangDAO" /> 
 	</bean>
 	
+	<!-- post -->
+	<bean id="postDAO" class="com.surt.dao.PostDAOImpl" >
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
+	</bean>
+	<!-- Service -->
+	<bean id="postService" class="com.surt.service.PostServiceImpl" >
+		<property name="postDAO" ref-value="postDAO" /> 
+	</bean>
 	
 </beans>

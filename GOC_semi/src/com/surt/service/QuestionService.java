@@ -13,7 +13,7 @@ public interface QuestionService {
 	List<QuestionVO> getQuestionList(String id) throws SQLException;
 
 	// 질문 검색
-	QuestionVO getQuestion(String id) throws SQLException;
+	QuestionVO getQuestion(int idx) throws SQLException;
 
 	// 질문 추가
 	public void regist(QuestionVO question) throws SqlSessionException;

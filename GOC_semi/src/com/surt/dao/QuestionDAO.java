@@ -14,7 +14,7 @@ public interface QuestionDAO {
 	List<QuestionVO> selectQuestionList(String id) throws SQLException;
 
 	// 질문 검색
-	QuestionVO selectQuestionById(String id) throws SQLException;
+	QuestionVO selectQuestionByIdx(int idx) throws SQLException;
 
 	// 질문 추가
 	public void insertQuestion(QuestionVO question) throws SqlSessionException;

@@ -17,211 +17,15 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<style type="text/css">
-.starter-template {
-	padding: 40px 15px;
-	text-align: center;
-}
-
-.slide-img {
-	max-width: 40%;
-	min-width: 40%;
-	min-height: 30%;
-	max-height: 30%;
-	margin: 0 auto;
-}
-
-.carousel-control-prev-icon {
-	color: black;
-}
-
-.icon {
-	width: 80px;
-	height: 20%;
-	margin-right: 20px;
-}
-
-.container-fluid {
-	width: 80%;
-}
-
-/* #listMenu { */
-/* 	width: 300px; */
-/* 	height: 800px; */
-/* 	border: solid red; */
-/* 	float: left; */
-/* } */
-.customoverlay {
-	position: relative;
-	bottom: 85px;
-	border-radius: 6px;
-	border: 1px solid #ccc;
-	border-bottom: 2px solid #ddd;
-	float: left;
-}
-
-.customoverlay:nth-of-type(n) {
-	border: 0;
-	box-shadow: 0px 1px 2px #888;
-}
-
-.customoverlay a {
-	display: block;
-	text-decoration: none;
-	color: #000;
-	text-align: center;
-	border-radius: 6px;
-	font-size: 14px;
-	font-weight: bold;
-	overflow: hidden;
-	background: #d95050;
-	background: #d95050
-		url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
-		no-repeat right 14px center;
-}
-
-.customoverlay .title {
-	display: block;
-	text-align: center;
-	background: #fff;
-	margin-right: 35px;
-	padding: 10px 15px;
-	font-size: 14px;
-	font-weight: bold;
-}
-
-.customoverlay:after {
-	content: '';
-	position: absolute;
-	margin-left: -12px;
-	left: 50%;
-	bottom: -12px;
-	width: 22px;
-	height: 12px;
-	background:
-		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
-}
-
-.wrap {
-	position: absolute;
-	left: 0;
-	bottom: 40px;
-	width: 288px;
-	height: 132px;
-	margin-left: -144px;
-	text-align: left;
-	overflow: hidden;
-	font-size: 12px;
-	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
-	line-height: 1.5;
-}
-
-.wrap * {
-	padding: 0;
-	margin: 0;
-}
-
-.wrap .info {
-	width: 286px;
-	height: 120px;
-	border-radius: 5px;
-	border-bottom: 2px solid #ccc;
-	border-right: 1px solid #ccc;
-	overflow: hidden;
-	background: #fff;
-}
-
-.wrap .info:nth-child(1) {
-	border: 0;
-	box-shadow: 0px 1px 2px #888;
-}
-
-.info .title {
-	padding: 5px 0 0 10px;
-	height: 30px;
-	background: #eee;
-	border-bottom: 1px solid #ddd;
-	font-size: 18px;
-	font-weight: bold;
-}
-
-.info .close {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	color: #888;
-	width: 17px;
-	height: 17px;
-	background:
-		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
-}
-
-.info .close:hover {
-	cursor: pointer;
-}
-
-.info .body {
-	position: relative;
-	overflow: hidden;
-}
-
-.info .desc {
-	position: relative;
-	margin: 13px 0 0 90px;
-	height: 75px;
-}
-
-.desc .ellipsis {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-.desc .jibun {
-	font-size: 11px;
-	color: #888;
-	margin-top: -2px;
-}
-
-.info .img {
-	position: absolute;
-	top: 6px;
-	left: 5px;
-	width: 73px;
-	height: 71px;
-	border: 1px solid #ddd;
-	color: #888;
-	overflow: hidden;
-}
-
-.info:after {
-	content: '';
-	position: absolute;
-	margin-left: -12px;
-	left: 50%;
-	bottom: 0;
-	width: 22px;
-	height: 12px;
-	background:
-		url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
-}
-
-.info .link {
-	color: #5085BB;
-}
-
-.sikdangtable {
-	overflow: scroll;
-	height: 800px;
-}
-</style>
+<link href="<%=request.getContextPath()%>/resources/css/sikdang.css" rel="stylesheet">
+<script src="<%=request.getContextPath()%>/resources/js/sikdang.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
 		<div class="container-fluid">
-			<div class="icon">
-				<a class="navbar-brand" href="#"><img class="icon"
-					src="resources/img/icon.png"></a>
+			<div class="icon" title="Home Page">
+				<div class="icon" onclick="goMainPage('<%=request.getContextPath()%>')"
+					style="background-image: url(<%=request.getContextPath()%>/resources/img/icon.png);"></div>
 			</div>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -233,7 +37,7 @@
 				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 					style="-bs-scroll-height: 100px;">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#">공지사항</a></li>
+						aria-current="page" href="<%=request.getContextPath()%>/post/noticeBoard.do">공지사항</a></li>
 
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -241,11 +45,12 @@
 						data-bs-toggle="dropdown" aria-expanded="false"> 게시판 </a>
 						<ul class="dropdown-menu"
 							aria-labelledby="navbarScrollingDropdown">
-							<li><a class="dropdown-item" href="#">자유게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/freeBoard.do">자유게시판</a></li>
 							<li><a class="dropdown-item" href="#">너성보</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="#">깐부게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/gganboo.do">깐부게시판</a></li>
 							<li><a class="dropdown-item" href="#">맛집게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/sikdang/list.do">식당리스트</a></li>
 						</ul></li>
 				</ul>
 				<div class="d-flex">
@@ -254,13 +59,12 @@
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarScrollingDropdown" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false"> 회원닉네임 </a>
+							data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;"> ${loginUser.user_id} </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarScrollingDropdown">
-								<li><a class="dropdown-item" href="#">마이페이지</a></li>
-								<li><a class="dropdown-item" href="#">마이페이지</a></li>
+								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="#">로그아웃</a></li>
+								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/common/logout.do">로그아웃</a></li>
 							</ul></li>
 					</ul>
 				</div>
@@ -269,9 +73,9 @@
 	</nav>
 
 
-
 	<div class="container">
 		<div class="container-fluid">
+			<br>
 			<div class="row">
 				<div class="col-sm-3">
 					<div class="sikdangtable">
@@ -289,6 +93,7 @@
 
 				<div class="col-9">
 					<div id="map" style="width: 100%; height: 800px;"></div>
+					
 					<script type="text/javascript"
 						src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f393a6233b92d5632576a53445426df6"></script>
 					<script>
@@ -365,13 +170,30 @@
 			<!-- /.container -->
 		</div>
 	</div>
+	<br>
+	<!-- footer -->
+	<footer class="footer-layout bg-dark" style="padding: 5px;">
+		<div class="footer-fontcolor layout" style="text-align: center;">
+			<div title="너의 성향이 보여" class="footer-surtimg"
+				style="background-image: url(<%=request.getContextPath()%>/resources/img/surt_text.jpg);"></div>
+			<div class="footer-fontcolor layout">
+				<div id="footer-list">
+					<ul class="footer-text">
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Contact</a></li>
+						<li><a href="#">Support</a></li>
+					</ul>
+				</div>
+				Copyright ⓒ SURT
+			</div>
+		</div>
+	</footer>
 
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>
-	<scriptsrc="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 </html>

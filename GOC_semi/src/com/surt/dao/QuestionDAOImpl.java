@@ -34,10 +34,10 @@ public class QuestionDAOImpl implements QuestionDAO{
 	}
 	
 	@Override
-	public QuestionVO selectQuestionById(String id) throws SQLException {
+	public QuestionVO selectQuestionByIdx(int idx) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			QuestionVO question = session.selectOne("Question-Mapper.selectQuestionById",id);			
+			QuestionVO question = session.selectOne("Question-Mapper.selectQuestionByIdx",idx);			
 			return question;			
 		}catch(Exception e) {
 			//에러처리

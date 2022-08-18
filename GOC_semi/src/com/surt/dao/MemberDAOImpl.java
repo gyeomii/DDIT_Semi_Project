@@ -81,5 +81,20 @@ public class MemberDAOImpl implements MemberDAO{
 			if(session != null)session.close();
 		}
 	}
+	
+	@Override
+	public int selectMBTI(String mbti) throws SqlSessionException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			int getMbti = session.selectOne("Member-Mapper.selectMBTI", mbti);
+			return getMbti;
+		} catch (Exception e) {
+			// 에러처리
+			throw e;
+		} finally {
+			if (session != null)
+				session.close();
+		}
+	}
 
 }

@@ -20,5 +20,12 @@
 		question(question_idx, question_type, question_title, question_content, question_regdate, user_id)
 		values(#{question_idx}, #{question_type}, #{question_title}, #{question_content}, #{question_regdate}, #{user_id})
 	</update>
+	
+	<select id="selectQuestionByIdx" parameterType="int" resultType="question">
+		select
+		*
+		from question
+		where question_idx = #{idx}
+	</select>
 		
 </mapper>

@@ -20,7 +20,7 @@ public class SikdangMapListAction implements Action {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String url = "/sikdangmap/sikdanglist";
+		String url = "/sikdang/sikdanglist";
 		
 		List<SikdangVO> sikdangList = sikdangService.getSikdangList();
 		request.setAttribute("sikdangList", sikdangList);

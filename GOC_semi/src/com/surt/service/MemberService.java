@@ -11,7 +11,8 @@ import com.surt.exception.NotFoundIdException;
 public interface MemberService {
 	// 회원상세조회
 	MemberVO getMember(String id) throws SQLException;
-	MemberVO checkNickname(String nickname)throws SQLException;
+
+	MemberVO checkNickname(String nickname) throws SQLException;
 
 	// 회원등록
 	public void regist(MemberVO member) throws Exception;
@@ -22,6 +23,8 @@ public interface MemberService {
 	// 회원탈퇴
 	public void remove(String id) throws Exception;
 
-	//login
-	void login(String id, String pwd) throws NotFoundIdException, InvalidPasswordException,	SQLException;
+	// login
+	void login(String id, String pwd) throws NotFoundIdException, InvalidPasswordException, SQLException;
+
+	public Map<String, Integer> getMBTIList() throws SQLException;
 }

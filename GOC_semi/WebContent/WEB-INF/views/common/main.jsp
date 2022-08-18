@@ -79,7 +79,7 @@
 		</div>
 	</nav>
 	<div class="layout background-white"
-		style="min-width: 750px; height: 2070px;">
+		style="min-width: 750px; height: 1524px;">
 		<br>
 		<div class="container">
 			<div class="row">
@@ -292,7 +292,7 @@
 		</div>
 		<div class="container">
 			<div class="main" style="min-width: 715px;">
-				<c:forEach begin="1" end="8">
+				<c:forEach begin="1" end="2">
 					<div class="card">
 						<div class="board">
 							<h3>

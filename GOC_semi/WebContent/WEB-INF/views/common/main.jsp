@@ -52,6 +52,7 @@
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="#">깐부게시판</a></li>
 							<li><a class="dropdown-item" href="#">맛집게시판</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/sikdangmap/list.do">식당리스트</a></li>
 						</ul></li>
 				</ul>
 				<div class="d-flex">

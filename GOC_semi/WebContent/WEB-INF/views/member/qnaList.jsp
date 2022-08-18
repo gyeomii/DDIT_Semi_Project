@@ -88,9 +88,10 @@
 			   	 <div class="list-group">
 			   	  <a href="<%=request.getContextPath()%>/member/mypage.do" class="list-group-item list-group-item-action">🙍‍♂‍profile</a>
 				  <a href="<%=request.getContextPath()%>/member/editmemberinfo.do" class="list-group-item list-group-item-action">🔑회원정보수정</a>
-				  <a href="<%=request.getContextPath()%>/member/mypost.do" class="list-group-item list-group-item-action active" aria-current="true">✒내가 쓴 글</a>
+				  <a href="<%=request.getContextPath()%>/member/mypost.do" class="list-group-item list-group-item-action " aria-current="true">✒내가 쓴 글</a>
 				  <a href="<%=request.getContextPath()%>/member/tendency.do" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
 				  <a href="<%=request.getContextPath()%>/member/qna.do" class="list-group-item list-group-item-action ">📢1 : 1 문의하기</a>
+				  <a href="<%=request.getContextPath()%>/member/qnaList.do" class="list-group-item list-group-item-action active" aria-current="true">📢문의 내용 확인</a>
 				</div>
 			  </div>
 			<div class="col-sm-10" style="margin-top: 0">
@@ -100,9 +101,8 @@
 				  <label class="input-group-text" for="inputGroupSelect01">검색조건</label>
 				  <select class="form-select" id="inputGroupSelect01" name="searchType">
 				    <option selected></option>
-				    <option value="t">제목</option>
-				    <option value="w">작성자</option>
-				    <option value="a">제목 + 작성자</option>
+				    <option value="type">문의 유형</option>
+				    <option value="title">제목</option>
 				  </select>
 				  <input type="text" class="form-control" aria-label="title" name="keyword" placeholder="검색내용">
 				  <button class="btn btn-outline-secondary" type="button" onclick="search_go()">검색</button>
@@ -110,55 +110,31 @@
 				<table class="table table-hover">
 				  <thead>
 				    <tr>
-				      <th scope="col">번호</th>
-				      <th scope="col">게시판</th>
+				      <th scope="col">문의 번호</th>
+				      <th scope="col">문의 유형</th>
 				      <th scope="col">제목</th>
 				      <th scope="col">작성일</th>
 				    </tr>
 				  </thead>
 				  <tbody>
-				    <tr id="post">
-				      <th scope="row">1</th>
-				      <td>깐부게시판</td>
-				      <td><a>아아 배고프다</a></td>
-				      <td>2022.01.01</td>
-				    </tr>
-				    <tr id="post">
-				      <th scope="row">2</th>
-				      <td>자유게시판</td>
-				      <td><a>아아 집가고싶다</a></td>
-				      <td>2022.01.02</td>
-				    </tr>
-				    <tr id="post">
-				      <th scope="row">3</th>
-				      <td>깐부게시판</td>
-				      <td><a>아아 마시고싶다</a></td>
-				      <td>2022.01.03</td>
-				    </tr>
-				    <tr id="post">
-				      <th scope="row">4</th>
-				      <td>깐부게시판</td>
-				      <td><a>으아아아아아</a></td>
-				      <td>2022.01.04</td>
-				    </tr>
-				    <tr id="post">
-				      <th scope="row">5</th>
-				      <td>깐부게시판</td>
-				      <td><a>오오오오오</a></td>
-				      <td>2022.01.05</td>
-				    </tr>
-				    <tr id="post">
-				      <th scope="row">6</th>
-				      <td>깐부게시판</td>
-				      <td><a>우우우우ㅜ우</a></td>
-				      <td>2022.01.06</td>
-				    </tr>
-				    <tr id="post">
-				      <th scope="row">7</th>
-				      <td>깐부게시판</td>
-				      <td><a>야스</a></td>
-				      <td>2022.01.06</td>
-				    </tr>
+				    <c:if test="${!empty questionList }" >
+		            		<c:forEach items="${questionList }" var="question">		     						     				
+		     					 <tr id="post">
+		            		  	   	<th>${question.question_idx}</th>
+				              		<td>${question.question_type }</td>
+				              		<td>${question.question_title }
+		            		  	   	<td><fmt:formatDate value="${question.question_regdate }" pattern="yyyy-MM-dd"/></td>
+		            		  	  </tr>	
+		     					
+		     				</c:forEach>
+		            	</c:if>		
+		     			<c:if test="${empty questionList }" >
+			     			<tr>
+		            			<td colspan="4" class="text-center">
+		            				해당내용이 없습니다.
+		            			</td>
+		            		</tr>
+		     			</c:if>	
 				  </tbody>
 				</table>
 				<br/>

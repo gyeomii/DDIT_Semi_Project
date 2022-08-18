@@ -4,26 +4,12 @@
 
 <mapper namespace="Question-Mapper">
 
-	<select id="selectQuestionList" resultType="question">
+	<select id="selectQuestionListById" parameterType="str" resultType="question">
 		select
 		* 
 		from question
-		where uset_id is not null
-		order by regDate desc
-	</select>
-	
-	<select id="selectQuestionListCount" resultType="int">
-		select
-		count(*) 
-		from question
-		where user_id is not null
-	</select>
-	
-	<select id="selectQuestionById" parameterType="str" resultType="question">
-		select
-		*
-		from question
 		where user_id = #{user_id}
+		order by question_regdate desc
 	</select>
 	
 	<update id="insertQuestion" parameterType="question">

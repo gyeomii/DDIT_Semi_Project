@@ -171,32 +171,32 @@ ul.imgs li{
 							<div class="carousel-inner">
 								<div class="carousel-item active">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/성겸.png)"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/loginForm/loginForm_face_성겸.png)"
 										onclick=""></div>
 								</div>
 								<div class="carousel-item">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/건영.png)"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/loginForm/loginForm_face_건영.png)"
 										onclick=""></div>
 								</div>
 								<div class="carousel-item">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/미정.png)"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/loginForm/loginForm_face_미정.png)"
 										onclick=""></div>
 								</div>
 								<div class="carousel-item">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/은정.jpg)"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/loginForm/loginForm_face_은정.jpg)"
 										onclick=""></div>
 								</div>
 								<div class="carousel-item">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/정현.png)"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/loginForm/loginForm_face_정현.png)"
 										onclick=""></div>
 								</div>
 								<div class="carousel-item">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/재린.png)"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/loginForm/loginForm_face_재린.png)"
 										onclick=""></div>
 								</div>
 							</div>
@@ -219,15 +219,16 @@ ul.imgs li{
 					<img src="<%=request.getContextPath()%>/resources/img/너성보.jfif"
 						id="tendency">
 					<form class="form-horizontal" action="login.do" method="post" style="margin:50px;">
-						<input name="retUrl" value="${retUrl }" type="hidden" />
 						<div class="form-floating mb-3 form-group">
-							<input type="text" class="form-control" id="floatingInput" placeholder="spongebob" name="id">
-							<label for="floatingInput">아이디</label>
+							<input type="text" class="form-control" id="floatingInput"
+								placeholder="spongebob" name="id"> <label
+								for="floatingInput">아이디</label>
 						</div>
 
 						<div class="form-floating form-group">
-							<input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-							 <label for="floatingPassword">Password</label>
+							<input type="password" class="form-control" id="floatingPassword"
+								placeholder="Password" name="password"> <label
+								for="floatingPassword">Password</label>
 						</div>
 						<div class="form-group" style="margin:50px;">
 							<div class="col-sm-offset-2 col-sm-10">

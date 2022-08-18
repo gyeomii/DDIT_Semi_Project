@@ -24,21 +24,10 @@ public class QuestionServiceImpl implements QuestionService {
 	}
 	
 	@Override
-	public Map<String, Object> getQuestionList(Criteria cri) throws SQLException {
-		Map<String,Object> dataMap =null;
-		
+	public List<QuestionVO> getQuestionList(String id) throws SQLException {
 		//처리.......
-		List<QuestionVO> questionList = questionDAO.selectQuestionList(cri);
-		
-		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(questionDAO.selectQuestionListCount(cri));
-		
-		dataMap = new HashMap<String,Object>();
-		dataMap.put("questionList", questionList);
-		dataMap.put("pageMaker",pageMaker);
-		
-		return dataMap;
+		List<QuestionVO> questionList = questionDAO.selectQuestionList(id);
+		return questionList;
 	}
 	@Override
 	public QuestionVO getQuestion(String id) throws SQLException {

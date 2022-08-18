@@ -91,6 +91,7 @@
 				  <a href="<%=request.getContextPath()%>/member/mypost.do" class="list-group-item list-group-item-action active" aria-current="true">✒내가 쓴 글</a>
 				  <a href="<%=request.getContextPath()%>/member/tendency.do" class="list-group-item list-group-item-action">🎭너의 성향이 보여</a>
 				  <a href="<%=request.getContextPath()%>/member/qna.do" class="list-group-item list-group-item-action ">📢1 : 1 문의하기</a>
+				  <a href="<%=request.getContextPath()%>/member/qnaList.do" class="list-group-item list-group-item-action" >📢문의 내용 확인</a>
 				</div>
 			  </div>
 			<div class="col-sm-10" style="margin-top: 0">

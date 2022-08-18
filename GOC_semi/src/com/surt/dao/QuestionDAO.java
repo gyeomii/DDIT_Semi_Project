@@ -11,10 +11,7 @@ import com.surt.dto.QuestionVO;
 
 public interface QuestionDAO {
 	// 질문 목록 조회
-	List<QuestionVO> selectQuestionList(Criteria cri) throws SQLException;
-
-	// 일반 질문리스트 전체 개수
-	int selectQuestionListCount(Criteria cri) throws SQLException;
+	List<QuestionVO> selectQuestionList(String id) throws SQLException;
 
 	// 질문 검색
 	QuestionVO selectQuestionById(String id) throws SQLException;

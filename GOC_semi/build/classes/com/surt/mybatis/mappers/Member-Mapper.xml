@@ -36,4 +36,11 @@
 		where user_id=#{user_id}
 	</update>
 	
+	<select id="selectSikdangList" resultType="sikdang">
+		select
+		sikdangname,lat,lng
+		from sikdangmap
+	</select>
+	
+	
 </mapper>

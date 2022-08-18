@@ -20,29 +20,11 @@ public class QuestionDAOImpl implements QuestionDAO{
 	}
 	
 	@Override
-	public List<QuestionVO> selectQuestionList(Criteria cri) throws SQLException {
+	public List<QuestionVO> selectQuestionList(String id) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			int offset = cri.getStartRowNum();
-			int limit = cri.getPerPageNum();
-			RowBounds rowBounds = new RowBounds(offset, limit);
-
-			List<QuestionVO> questionList = session.selectList("Question-Mapper.selectMemberList", cri, rowBounds);
-			return questionList;
-		} catch (Exception e) {
-			// 에러처리
-			throw e;
-		} finally {
-			if (session != null)
-				session.close();
-		}
-	}
-	@Override
-	public int selectQuestionListCount(Criteria cri) throws SQLException {
-		SqlSession session = sqlSessionFactory.openSession();
-		try {
-			int count = session.selectOne("Question-Mapper.selectMemberListCount", cri);
-			return count;
+			List<QuestionVO> questionList = session.selectList("Question-Mapper.selectQuestionListById",id);			
+			return questionList;			
 		}catch(Exception e) {
 			//에러처리
 			throw e;
@@ -50,6 +32,7 @@ public class QuestionDAOImpl implements QuestionDAO{
 			if(session != null)session.close();
 		}
 	}
+	
 	@Override
 	public QuestionVO selectQuestionById(String id) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();

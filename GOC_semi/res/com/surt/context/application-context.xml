@@ -17,4 +17,13 @@
 		<property name="questionDAO" ref-value="questionDAO"/>
 	</bean>
 	
+	<bean id="sikdangDAO" class="com.surt.dao.SikdangDAOImpl" >
+		<property name="sqlSessionFactory" ref-value="sqlSessionFactory" />
+	</bean>
+	<!-- Service -->
+	<bean id="sikdangService" class="com.surt.service.SikdangServiceImpl" >
+		<property name="sikdangDAO" ref-value="sikdangDAO" /> 
+	</bean>
+	
+	
 </beans>

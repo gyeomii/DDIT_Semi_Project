@@ -12,6 +12,7 @@
 		
 		<typeAlias type="com.surt.dto.MemberVO"  alias="member"/>
 		<typeAlias type="com.surt.dto.QuestionVO"  alias="question"/>
+		<typeAlias type="com.surt.dto.SikdangVO" alias="sikdang" />
   	</typeAliases>
   	
   	
@@ -36,6 +37,7 @@
   	<mappers>
 		<mapper resource="com/surt/mybatis/mappers/Member-Mapper.xml"/>
 		<mapper resource="com/surt/mybatis/mappers/Question-Mapper.xml"/>
+		
 	</mappers>
   </configuration>
   

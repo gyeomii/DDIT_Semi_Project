@@ -18,6 +18,8 @@ public class MemberVO {
 	private String picture; // 사진파일 경로/파일명
 	private int agree_tos;
 	private String role;
+	private String mbti;
+
 
 	// 시스템 정보
 	private Date regist_date; // 등록일
@@ -32,6 +34,14 @@ public class MemberVO {
 
 	public void setUser_idx(int user_idx) {
 		this.user_idx = user_idx;
+	}
+
+	public String getMbti() {
+		return mbti;
+	}
+	
+	public void setMbti(String mbti) {
+		this.mbti = mbti;
 	}
 
 	public String getUser_id() {
@@ -151,7 +161,8 @@ public class MemberVO {
 		return "MemberVO [user_idx=" + user_idx + ", user_id=" + user_id + ", name=" + name + ", email=" + email
 				+ ", password=" + password + ", birth=" + birth + ", address=" + address + ", nickname=" + nickname
 				+ ", gender=" + gender + ", phone=" + phone + ", picture=" + picture + ", agree_tos=" + agree_tos
-				+ ", role=" + role + ", regist_date=" + regist_date + ", updated_at=" + updated_at + "]";
+				+ ", role=" + role + ", mbti=" + mbti + ", regist_date=" + regist_date + ", updated_at=" + updated_at
+				+ "]";
 	}
 
 }

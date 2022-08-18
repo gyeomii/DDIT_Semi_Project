@@ -15,7 +15,7 @@ public class MemberUpdateCommand {
 	private String nickname;// 닉네임
 	private String[] phone; // 전화번호
 	private String picture = "defaultPicture.jpg";
-
+	private String mbti = "mbti";
 	// 시스템 정보
 	private Date updated_at; // 등록일
 
@@ -91,7 +91,13 @@ public class MemberUpdateCommand {
 		this.phone = phone;
 	}
 
-	
+	public String getMbti() {
+		return mbti;
+	}
+
+	public void setMbti(String mbti) {
+		this.mbti = mbti;
+	}
 
 	public MemberVO toMemberVO() {
 		String phone = "";

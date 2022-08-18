@@ -167,21 +167,28 @@
 				</form>
 		    </div>
 					<!-- col-sm-6 -->
-				<div class="col-sm-3 profile-picture">
+				<div class="col-sm-3 profile-picture" style="text-aligh:center;">
 					<div>
 						<label>Profile Picture</label>
 						<br/>
 						<div>
-							<img src="<%=request.getContextPath()%>/resources/img//kkk.jpg" width="200" height="200" class="rounded-circle" style="border : solid">
+							<div class="rounded-circle manPicture"  data-id="${loginUser.user_id }" style="border : solid; width:200px; height:200px; margin-left:50px"></div>
 						</div>
 						<br/>
 						<div>
-							<button type="button" class="btn btn-primary" onclick="upload_go()">사진 변경</button>
+							<button type="button" class="btn btn-primary" onclick="OpenWindow('pictureChangeForm.do','사진변경',600,600)">사진 변경</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+<form role="imageForm" action="upload/picture" method="post" enctype="multipart/form-data">
+	<input id="inputFile" name="pictureFile" type="file" class="form-control" style="display:none;" onchange="picture_go();" />
+	<input id="oldFile" type="hidden" name="oldPicture" value="" />
+	<input type="hidden" name="checkUpload" value="0" />	
+</form>		
+		
 		
 <!-- footer -->
 	<footer class="footer-layout bg-dark" style="padding: 5px;">
@@ -200,6 +207,19 @@
 			</div>
 		</div>
 	</footer>
+	
+<script>
+function OpenWindow(UrlStr, WinTitle, WinWidth, WinHeight) {
+    winleft = (screen.width - WinWidth) / 2;
+    wintop = (screen.height - WinHeight) / 2;
+    var win = window.open(UrlStr, WinTitle, "scrollbars=yes,width="
+          + WinWidth + ", " + "height=" + WinHeight + ", top="
+          + wintop + ", left=" + winleft
+          + ", resizable=yes, status=yes");
+    win.focus();
+ }
+</script>	
+	
 <script>
 var originNick = "${sessionScope.loginUser.nickname}";
 
@@ -266,12 +286,14 @@ function update_go(){
 	form.submit();
 }
 </script>
+
 <script>
-	function upload_go(){
-		alert("서버문제로 현재 수정이 불가합니다.\n문의는 DM으로 부탁드려요.🙏");
+	window.onload=function(){
+		MemberPictureThumb("<%=request.getContextPath()%>");
 	}
 </script>
-	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
+
+<script src="<%=request.getContextPath()%>/resources/js/member.js"></script>
    <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

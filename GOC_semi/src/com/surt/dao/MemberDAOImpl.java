@@ -113,4 +113,5 @@ public class MemberDAOImpl implements MemberDAO{
 			if(session != null)session.close();
 		}
 	}
+
 }

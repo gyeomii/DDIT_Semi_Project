@@ -96,6 +96,8 @@
 				<div class="col">
 						<h1>Show Ur Tendency <small class="text-muted">너의 성향이 보여</small></h1>
 					  <hr>
+				<form action="getMbti.do" method="post">
+				<input type="hidden" value="${loginUser.user_id }" name="id"/>
 					<div class="row g-4">
 						<div class="col-md">
 							<div class="form-floating">
@@ -138,93 +140,12 @@
 							</div>
 						</div>
 					</div>
-			<br> <br>
-
-			<h3>야자 잘 하고 있니?</h3>
-			<div class="col-md">
-				<div class="form-floating">
-					<select class="form-select" id="floatingSelectGrid"
-						aria-label="Floating label select example" name="yaja">
-						<option selected></option>
-						<option value="5">상 : 나보다 늦게 가는 사람 별로 없음</option>
-						<option value="4">중상</option>
-						<option value="3">보통</option>
-						<option value="2">중하</option>
-						<option value="1">교수님 죄송합니다...</option>
-					</select> <label for="floatingSelectGrid">나의 야자점수는?</label>
-				</div>
-			</div>
-			<br> <br>
-
-			<h3>최애 교수님이 누구셔?</h3>
-			<div class="col-md">
-				<div class="form-floating">
-					<select class="form-select" id="floatingSelectGrid"
-						aria-label="Floating label select example" name="teacher">
-						<option selected></option>
-						<option value="1">김형민 교수님(mimi)</option>
-						<option value="2">김정환 교수님(쵸퍼킴)</option>
-						<option value="3">하재관 교수님(오라클쌤)</option>
-						<option value="4">이유진 교수님(스크립트쌤)</option>
-						<option value="5">송찬중 교수님(다들 오셨나요?)</option>
-						<option value="6">장태권 부장님</option>
-					</select> <label for="floatingSelectGrid">한 분 골라주세요</label>
-				</div>
-			</div>
-			<br> <br>
-
-			<h3>너의 음식취향이 궁금해~</h3>
-			<br>
-			<div class="row">
-				<div class="col">
-					<div class="row g-4">
-						<div class="col-md">
-							<div class="form-floating">
-								<select class="form-select" id="floatingSelectGrid"
-									aria-label="Floating label select example" name="hot">
-									<option selected>매운 거 vs 순한 거</option>
-									<option value="1">맵돌맵순이 : 응!!!!!!!</option>
-									<option value="2">맵찔이 : 어..? 좋아는... 해..할껄..?</option>
-								</select> <label for="floatingSelectGrid"></label>
-							</div>
-						</div>
-						<div class="col-md">
-							<div class="form-floating">
-								<select class="form-select" id="floatingSelectGrid"
-									aria-label="Floating label select example" name="sugar">
-									<option selected>단거 vs 짠거</option>
-									<option value="1">달달파</option>
-									<option value="2">짭짤파</option>
-								</select> <label for="floatingSelectGrid"></label>
-							</div>
-						</div>
-						<div class="col-md">
-							<div class="form-floating">
-								<select class="form-select" id="floatingSelectGrid"
-									aria-label="Floating label select example" name="mint">
-									<option selected>민트초코.. 어떻게 생각하십니까..</option>
-									<option value="1">반민초 : 치약을 왜먹어?</option>
-									<option value="2">민초파 : 베라가면 무조건 민초지ㅎ</option>
-								</select> <label for="floatingSelectGrid"></label>
-							</div>
-						</div>
-						<div class="col-md">
-							<div class="form-floating">
-								<select class="form-select" id="floatingSelectGrid"
-									aria-label="Floating label select example" name="pizza">
-									<option selected>하와이안 피자 어때?</option>
-									<option value="1">호! 피자는 뭔들 ~</option>
-									<option value="2">불호! 따뜻한 파인애플.. 순리를 거스르는 거다..</option>
-								</select> <label for="floatingSelectGrid"></label>
-							</div>
-						</div>
-					</div>
-				</div>
-				</div>
+					<br> <br>
 					<br> <br>
 					<div class="col-auto">
-						<button type="submit" class="btn btn-primary mb-3" onclick="tendency_go()">저장하기</button>
+						<button type="submit" class="btn btn-primary mb-3">저장하기</button>
 					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -245,23 +166,6 @@
 			</div>
 		</div>
 	</footer>
-<script>
-function tendency_go(){
-	var m = $('select[name="m"]').val();
-	var b = $('select[name="b"]').val();
-	var t = $('select[name="t"]').val();
-	var i = $('select[name="i"]').val();
-	var yaja = $('select[name="yaja"]').val();
-	var teacher = $('select[name="teacher"]').val();
-	var hot = $('select[name="hot"]').val();
-	var sugar = $('select[name="sugar"]').val();
-	var mint = $('select[name="mint"]').val();
-	var pizza = $('select[name="pizza"]').val();
-	
-	alert("mbti : " + m + b + t + i + "\n" + yaja + teacher + hot + sugar + mint + pizza);
-	
-}
-</script>
 	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
 	<!-- /.container -->
 	<script

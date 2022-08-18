@@ -14,6 +14,8 @@ public class MemberRegistCommand {
 	private String address; // 주소
 	private String nickname;
 	private String picture = "defaultPicture.jpg";
+	private String mbti = "mbti";
+
 
 	private String gender;
 	private String[] phone; // 전화번호
@@ -97,6 +99,14 @@ public class MemberRegistCommand {
 
 	public void setPhone(String[] phone) {
 		this.phone = phone;
+	}
+	
+	public String getMbti() {
+		return mbti;
+	}
+
+	public void setMbti(String mbti) {
+		this.mbti = mbti;
 	}
 
 	public int getAgree_tos() {

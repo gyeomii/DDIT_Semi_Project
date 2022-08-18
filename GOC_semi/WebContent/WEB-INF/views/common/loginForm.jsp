@@ -8,11 +8,15 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>로그인</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<title>Show Ur Tendency - login</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style type="text/css">
 body {
 	padding-top: 80px;
@@ -22,8 +26,6 @@ body {
 	padding: 40px 15px;
 	text-align: center;
 }
-
-
 
 .slider{
     width: 500px;
@@ -116,69 +118,123 @@ ul.imgs li{
 #tendency {
 	height: 150px;
 }
+.slide-img {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.img {
+	width: 500px;
+	height: 500px;
+	background-position: center;
+	background-size: cover;
+}
 </style>
 </head>
 <body>
 
 
-	<div class="container">
+
+	<div class="container" style="margin-top:70px;">
 		<div class="starter-template">
 
 			<div class="row">
 				<div class="col-md-6">
-	
-					 <div class="slider">
-						<input type="radio" name="slide" id="slide1" checked> 
-						<input type="radio" name="slide" id="slide2"> 
-						<input type="radio" name="slide" id="slide3"> 
-						<input type="radio" name="slide" id="slide4">
-						<input type="radio" name="slide" id="slide5">
-						<input type="radio" name="slide" id="slide6">
-						<ul id="imgholder" class="imgs">
-							<li><img src="<%=request.getContextPath()%>/resources/img/건영.png"></li>
-							<li><img src="<%=request.getContextPath()%>/resources/img/미정.png"></li>
-							<li><img src="<%=request.getContextPath()%>/resources/img/성겸.png"></li>
-							<li><img src="<%=request.getContextPath()%>/resources/img/은정.png"></li>
-							<li><img src="<%=request.getContextPath()%>/resources/img/재린.png"></li>
-							<li><img src="<%=request.getContextPath()%>/resources/img/정현.png"></li>
-						</ul>
-						<div class="bullets">
-							<label for="slide1">&nbsp;</label> <label for="slide2">&nbsp;</label>
-							<label for="slide3">&nbsp;</label> <label for="slide4">&nbsp;</label>
-							<label for="slide5">&nbsp;</label> <label for="slide6">&nbsp;</label>
+
+					<div class="slide-img">
+						<div id="carouselExampleIndicators" class="carousel slide"
+							data-bs-ride="carousel">
+							<div class="carousel-indicators">
+								<button type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide-to="0" class="active" aria-current="true"
+									aria-label="Slide 1" style="background-color: black;"></button>
+								<button type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide-to="1" aria-label="Slide 2" style="background-color: black;"></button>
+								<button type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide-to="2" aria-label="Slide 3" style="background-color: black;"></button>
+								<button type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide-to="3" aria-label="Slide 4" style="background-color: black;"></button>
+								<button type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide-to="4" aria-label="Slide 5" style="background-color: black;"></button>
+								<button type="button"
+									data-bs-target="#carouselExampleIndicators"
+									data-bs-slide-to="5" aria-label="Slide 6" style="background-color: black;"></button>
+							</div>
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<div class="img"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/성겸.png)"
+										onclick=""></div>
+								</div>
+								<div class="carousel-item">
+									<div class="img"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/건영.png)"
+										onclick=""></div>
+								</div>
+								<div class="carousel-item">
+									<div class="img"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/미정.png)"
+										onclick=""></div>
+								</div>
+								<div class="carousel-item">
+									<div class="img"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/은정.jpg)"
+										onclick=""></div>
+								</div>
+								<div class="carousel-item">
+									<div class="img"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/정현.png)"
+										onclick=""></div>
+								</div>
+								<div class="carousel-item">
+									<div class="img"
+										style="background-image: url(<%=request.getContextPath()%>/resources/img/재린.png)"
+										onclick=""></div>
+								</div>
+							</div>
+							<button class="carousel-control-prev" type="button"
+								data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button"
+								data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+								<span class="visually-hidden">Next</span>
+							</button>
 						</div>
-					</div> 
+					</div>
 				</div>
 
 
 				<div class="col-md-6">
-					<img src="<%=request.getContextPath()%>/resources/img/너성보.jfif" id="tendency">
-					<form class="form-horizontal" action="login.do" method="post">
-						<div class="form-group">
-							<label for="inputId" class="col-sm-2 control-label">ID</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" id="inputId" name="id" placeholder="ID">
-							</div>
+					<img src="<%=request.getContextPath()%>/resources/img/너성보.jfif"
+						id="tendency">
+					<form class="form-horizontal" action="login.do" method="post" style="margin:50px;">
+						<input name="retUrl" value="${retUrl }" type="hidden" />
+						<div class="form-floating mb-3 form-group">
+							<input type="text" class="form-control" id="floatingInput" placeholder="spongebob" name="id">
+							<label for="floatingInput">아이디</label>
 						</div>
-						<div class="form-group">
-							<label for="inputPassword" class="col-sm-2 control-label">Password</label>
-							<div class="col-sm-10">
-								<input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
-							</div>
+
+						<div class="form-floating form-group">
+							<input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+							 <label for="floatingPassword">Password</label>
 						</div>
-						<div class="form-group">
+						<div class="form-group" style="margin:50px;">
 							<div class="col-sm-offset-2 col-sm-10">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox"> 아이디 비번을 기억할래요
-									</label>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-sm-offset-2 col-sm-10">
-								<button type="submit" class="btn btn-default">로그인</button>
-								<button type="button" class="btn btn-link" onclick='location.href="<%=request.getContextPath()%>/member/registForm.do"'>회원가입 하러가기</button>
+								<button type="submit" class="btn btn-secondary">로그인</button>
+								<button type="button" class="btn btn-light"
+									onclick='location.href="<%=request.getContextPath()%>/member/registForm.do"'>회원가입
+									하러가기</button>
 							</div>
 						</div>
 					</form>
@@ -187,9 +243,15 @@ ul.imgs li{
 		</div>
 	</div>
 	<!-- /.container -->
+	<!-- bootstrap 5.1.3 -->
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<!-- jquery 1.11.2 -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<!-- common.js -->
+	<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
 </body>
 </html>

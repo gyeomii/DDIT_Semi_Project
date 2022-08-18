@@ -137,7 +137,7 @@
 						<label>Profile Picture</label>
 						<br/>
 						<div>
-							<img src="<%=request.getContextPath()%>/resources/img/kkk.jpg" width="200" height="200" class="rounded-circle" style="border : solid">
+							<div class="rounded-circle manPicture"  data-id="${loginUser.user_id }" style="border : solid; width:200px; height:200px; margin-left:50px"></div>
 						</div>
 					</div>
 				</div>
@@ -162,7 +162,13 @@
 		</div>
 	</footer>
 	
-<script src="<%=request.getContextPath()%>/resources/js/common.js"></script>
+<script>
+	window.onload=function(){
+		MemberPictureThumb("<%=request.getContextPath()%>");
+	}
+</script>
+
+<script src="<%=request.getContextPath()%>/resources/js/member.js"></script>
 <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

@@ -75,4 +75,5 @@ public class MemberServiceImpl implements MemberService {
 			throw new InvalidPasswordException();
 		}
 	}
+
 }

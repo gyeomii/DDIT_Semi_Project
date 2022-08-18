@@ -23,16 +23,16 @@
 				SELECT USER_IDX_SEQ.NEXTVAL FROM DUAL
 		</selectKey>
 		insert into 
-		member(user_idx, user_id, name, email, password, birth, address, nickname, picture, gender, phone, regist_date, agree_tos)
+		member(user_idx, user_id, name, email, password, birth, address, nickname, picture, gender, phone, regist_date, agree_tos, mbti)
 		values(#{user_idx}, #{user_id}, #{name}, #{email}, #{password},
 				 #{birth}, #{address}, #{nickname}, #{picture}, #{gender}, #{phone},
-				  #{regist_date}, #{agree_tos})
+				  #{regist_date}, #{agree_tos}, #{mbti})
 	</update>
 	
 	<update id="updateMember" parameterType="member">
 		update member
 		set name=#{name}, email=#{email}, password=#{password}, 
-		 	address=#{address}, nickname=#{nickname}, phone=#{phone}, picture=#{picture}
+		 	address=#{address}, nickname=#{nickname}, phone=#{phone}, picture=#{picture}, mbti=#{mbti}
 		where user_id=#{user_id}
 	</update>
 	

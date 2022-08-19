@@ -8,7 +8,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <c:set var="postList" value="${postAllPopularList.postList }" />
+<c:set var="noticePostList" value="${postAllNoticeList.noticeList }" />
+<c:set var="freePostList" value="${postAllFreeList.freeList }" />
+<c:set var="myPostList" value="${myAllPostList.myPostList }" />
 
 <title>Show Ur Tendency - Main</title>
 <link
@@ -103,18 +107,18 @@
 							<div class="carousel-inner">
 								<div class="carousel-item active">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/main_banner_1.jpg)"
-										onclick=""></div>
+										style="cursor: pointer; background-image: url(<%=request.getContextPath()%>/resources/img/main_banner_1.jpg)"
+										onclick="location.href='<%=request.getContextPath()%>/member/tendency.do'"></div>
 								</div>
 								<div class="carousel-item">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/main_banner_2.jpg)"
-										onclick=""></div>
+										style="cursor: pointer; background-image: url(<%=request.getContextPath()%>/resources/img/main_banner_2.jpg)"
+										onclick="location.href='<%=request.getContextPath()%>/member/tendency.do'"></div>
 								</div>
 								<div class="carousel-item">
 									<div class="img"
-										style="background-image: url(<%=request.getContextPath()%>/resources/img/main_banner_3.png)"
-										onclick=""></div>
+										style="cursor: pointer; background-image: url(<%=request.getContextPath()%>/resources/img/main_banner_3.png)"
+										onclick="location.href='<%=request.getContextPath()%>/member/tendency.do'"></div>
 								</div>
 							</div>
 
@@ -147,7 +151,7 @@
 										<div class="row">
 											<div title="닉네임" class="col-sm-6"
 												style="margin-top: 1%; font-weight: bold; font-size: 15px; cursor: pointer; justify-content: left;"
-												onclick="goToMyPage()">${loginUser.nickname }</div>
+												onclick="location.href='<%=request.getContextPath()%>/member/mypage.do'">${loginUser.nickname }</div>
 											<div class="col-sm-6" style="padding-right: 10px;">
 												<button type="button" id="logout"
 													onclick="location.href='<%=request.getContextPath()%>/common/logout.do'">로그아웃</button>
@@ -179,8 +183,15 @@
 								<div class="main" style="height: 100%;">
 									<div class="card" style="height: 100%;">
 										<div class="board">
-											<c:forEach items="${postList }" var="posts" begin="1" end="4">
-												<a class="list" href="<%=request.getContextPath()%>/post/postContent.do?id=${posts.post_id }"> <time>
+											<c:if test="${empty myPostList}">
+												<div style="text-align: center; padding: 60px 0;">게시글이
+													없습니다.</div>
+											</c:if>
+											<c:forEach items="${myPostList }" var="posts" begin="0"
+												end="3">
+												<a class="list"
+													href="<%=request.getContextPath()%>/post/postContent.do?id=${posts.post_id }">
+													<time>
 														<fmt:formatDate pattern="MM-dd"
 															value="${posts.post_mod_date}" />
 													</time>
@@ -222,24 +233,24 @@
 							</thead>
 							<tbody>
 								<!--공지사항 데이터로 수정 필요 -->
-								<c:forEach items="${postList }" var="posts" varStatus="status"
+								<c:forEach items="${noticePostList }" var="noticePosts" varStatus="status"
 									begin="0" end="4">
 									<tr>
 										<th class="borad-number" scope="row">${status.count}</th>
-										<td class="borad-auther">${posts.nickname }</td>
-										<td class="borad-title"><a href="<%=request.getContextPath()%>/post/postContent.do?id=${posts.post_id }">${posts.title}</a></td>
+										<td class="borad-auther">${noticePosts.nickname }</td>
+										<td class="borad-title"><a href="<%=request.getContextPath()%>/post/postContent.do?id=${noticePosts.post_id }">${noticePosts.title}</a></td>
 										<td class="borad-time"><fmt:formatDate pattern="MM-dd"
-												value="${posts.post_mod_date}" /></td>
-										<td class="borad-hit">${posts.hit_count }</td>
-										<td class="borad-liked">${posts.liked }</td>
+												value="${noticePosts.post_mod_date}" /></td>
+										<td class="borad-hit">${noticePosts.hit_count }</td>
+										<td class="borad-liked">${noticePosts.liked }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div class="col-sm-4">
-					<div>오늘의 생일</div>
+				<div class="col-sm-4 weather" style=""> 
+					<iframe width="100%" height="100%" src="https://forecast.io/embed/#lat=36.325029&lon=127.408951&name=대전 중구 오류동&color=#ffc261&font=arial&units=si" frameborder="0"></iframe>
 				</div>
 			</div>
 
@@ -292,25 +303,40 @@
 		</div>
 		<div class="container">
 			<div class="main" style="min-width: 715px;">
-				<c:forEach begin="1" end="2">
 					<div class="card">
 						<div class="board">
 							<h3>
-								<a href="#">게시판</a>
+								<a href="<%=request.getContextPath()%>/post/noticeBoard.do"">공지사항 </a>
 							</h3>
-							<c:forEach items="${postList }" var="posts" begin="1" end="5">
+							<c:forEach items="${noticePostList }" var="noticePosts" begin="1" end="5">
 								<a class="list"
-									href="<%=request.getContextPath()%>/post/postContent.do?id=${posts.post_id }">
+									href="<%=request.getContextPath()%>/post/postContent.do?id=${noticePosts.post_id }">
 									<time>
-										<fmt:formatDate pattern="MM-dd" value="${posts.post_mod_date}" />
+										<fmt:formatDate pattern="MM-dd" value="${noticePosts.post_mod_date}" />
 									</time>
-									<p>${posts.title}</p>
+									<p>${noticePosts.title}</p>
 									<hr>
 								</a>
 							</c:forEach>
 						</div>
 					</div>
-				</c:forEach>
+					<div class="card">
+						<div class="board">
+							<h3>
+								<a href="<%=request.getContextPath()%>/post/freeBoard.do"">자유게시판 </a>
+							</h3>
+							<c:forEach items="${freePostList }" var="freePosts" begin="1" end="5">
+								<a class="list"
+									href="<%=request.getContextPath()%>/post/postContent.do?id=${freePosts.post_id }">
+									<time>
+										<fmt:formatDate pattern="MM-dd" value="${freePosts.post_mod_date}" />
+									</time>
+									<p>${freePosts.title}</p>
+									<hr>
+								</a>
+							</c:forEach>
+						</div>
+					</div>
 			</div>
 		</div>
 	</div>
@@ -377,11 +403,11 @@ function timeChange(e){
 
 	<!-- MBIT 통계 스트립트 -->
 	<script>
-		const DATA_COUNT = 17;
+		const DATA_COUNT = 16;
 		const labels = [ 'ENFJ', 'ENFP', 'ENTJ', 'ENTP',
 						 'ESFJ', 'ESFP', 'ESTJ', 'ESTP',
 						 'INFJ', 'INFP', 'INTJ', 'INTP',
-						 'ISFJ', 'ISFP', 'ISTJ', 'ISTP', 'CUTE' ];
+						 'ISFJ', 'ISFP', 'ISTJ', 'ISTP',];
 
 		const data = {
 			labels : labels,
@@ -391,13 +417,13 @@ function timeChange(e){
 				backgroundColor : [ '#52CEB0', '#FFA348', '#3462A3', '#DD5843',
 						'#FFCFCF', '#E0707E', '#587A4B', '#FF977B', '#C0D8FF',
 						'#277A64', '#BAB0FF', '#7FC2F4', '#FFCC71', '#A6BF6F',
-						'#DDDDDD', '#2A718C','#1A158C' ],
+						'#DDDDDD', '#2A718C'],
 				borderColor : 'black',
 
 				data : [${mbti.ENFJ}, ${mbti.ENFP}, ${mbti.ENTJ}, ${mbti.ENTP}, 
 						${mbti.ESFJ}, ${mbti.ESFP}, ${mbti.ESTJ}, ${mbti.ESTP},
 						${mbti.INFJ}, ${mbti.INFP}, ${mbti.INTJ}, ${mbti.INTP},
-						${mbti.ISFJ}, ${mbti.ISFP}, ${mbti.ISTJ}, ${mbti.ISTP},${mbti.CUTE}
+						${mbti.ISFJ}, ${mbti.ISFP}, ${mbti.ISTJ}, ${mbti.ISTP},
 					   ],
 				
 			} ]

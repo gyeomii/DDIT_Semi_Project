@@ -1,0 +1,277 @@
+@charset "UTF-8";
+
+.row { -
+	-bs-gutter-x: -3rem;
+}
+
+body {
+	background-color: gray;
+}
+
+.background-white {
+	background-color: white;
+}
+
+.starter-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+.slide-img {
+	padding-left: 10%;
+	padding-right: 10%;
+}
+
+.carousel-control-prev-icon {
+	color: black;
+}
+
+.weather {
+	margin: auto;
+	width: 300px;
+	height: 180px;
+}
+
+hr {
+	width: 65vw;
+}
+
+.icon {
+	width: 4vw;
+	height: 4vw;
+	min-width: 60px;
+	min-height: 60px;
+	background-position: center;
+	background-size: contain;
+	cursor: pointer;
+	margin-right: 20px;
+	cursor: pointer;
+	background-size: contain;
+	background-position: center;
+	min-height: 60px;
+	min-width: 60px;
+}
+
+.container-fluid {
+	width: 80%;
+}
+
+.borad-number {
+	width: 10%;
+	text-align: center;
+}
+
+.borad-auther {
+	width: 15%;
+	text-align: center;
+}
+
+.borad-title {
+	width: 45%;
+}
+
+.borad-time {
+	width: 10%;
+	text-align: center;
+}
+
+.borad-hit {
+	width: 10%;
+	text-align: center;
+}
+
+.borad-liked {
+	width: 10%;
+	text-align: center;
+}
+
+th[class='borad-number'] ::after {
+	content: "|"
+}
+
+.layout {
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 0 6% 0 2%;
+}
+
+.col-sm-4 {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.img {
+	width: 36vw;
+	height: 15vw;
+	background-position: center;
+	background-size: cover;
+}
+
+footer {
+	position: relative;
+}
+
+.footer-fontcolor {
+	color: white;
+}
+
+.footer-surtimg {
+	width: 19vw;
+	height: 6vw;
+	background-position: center;
+	background-size: cover;
+	margin: auto;
+}
+
+.footer-text {
+	display: inline-block;
+}
+
+.footer-fontcolor>ul>li {
+	color: white;
+	list-style: none;
+	padding-left: 0px;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
+	border: 0;
+	float: left;
+	text-align: center;
+}
+
+ul.footer-text>li>a {
+	text-decoration: none;
+	color: white;
+}
+
+.footer-text li::after {
+	padding-left: 10px;
+	padding-right: 10px;
+	content: "|"
+}
+
+.footer-text li:last-child::after {
+	content: ""
+}
+
+.member-info {
+	height: 40%;
+}
+
+#logout {
+	float: right;
+	font-size: 14px;
+	width: 70px;
+	height: 30px;
+	-webkit-border-radius: 14px;
+	color: #fff;
+	background-color: #bcc8d4;
+	border: none;
+}
+
+.container>div.main {
+	width: 70vw;
+	margin: auto;
+	height: 465px;
+}
+
+.container>div.main div.card {
+	margin: 0.1%;
+	width: 49.8%;
+	border: 1px solid #e3e3e3;
+	overflow: hidden;
+	background-color: #fff;
+	float: left;
+	min-width: 340px;
+}
+
+.container div.card h3>a {
+	line-height: 20px;
+	color: #460ad3;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.container div.card>div.board>a {
+	display: block;
+	padding: 10px;
+	border-top: 1px solid #e3e3e3;
+	text-decoration: none;
+}
+
+.container div.card>div.board>a.list {
+	height: 35px;
+}
+
+.container div.card>div.board>h3 {
+	height: 35px;
+}
+
+.container div.card>div.board>a.list>p {
+	height: 17px;
+	line-height: 18px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #444444;
+	font-size: 14px;
+}
+
+.container div.card>div.board>a.list>time {
+	float: right;
+	margin-left: 10px;
+	height: 17px;
+	line-height: 18px;
+	color: #a6a6a6;
+	font-size: 11px;
+	letter-spacing: 0;
+}
+
+.container hr {
+	clear: both;
+	width: 100%;
+	height: 0;
+	border: 0;
+}
+
+.container div.card>div.board>a:hover {
+	background-color: #f9f9f9;
+}
+
+.container div.card h3 {
+	padding-left: 10px;
+}
+
+.mylist {
+	width: 25%;
+	border: 1px solid #E4E8EB
+}
+
+.mylist:hover {
+	background-color: #e3ebee;
+	border: #2f3030;
+}
+
+td>a {
+	text-decoration: none;
+	color: black;
+	overflow: hidden;
+}
+
+td>a:hover {
+	color: gray;
+}
+
+a>p {
+	overflow: hidden;
+}

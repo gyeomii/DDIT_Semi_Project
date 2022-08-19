@@ -14,6 +14,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+.container-fluid {
+	width: 80%;
+}
+
 .footer-fontcolor {
 	color: white;
 }
@@ -73,8 +78,6 @@ ul.footer-text > li > a {
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 <link href="<%=request.getContextPath()%>/resources/css/gganboo.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
@@ -82,10 +85,12 @@ ul.footer-text > li > a {
 </style>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top"
+		style="min-width: 888px;">
 		<div class="container-fluid">
 			<div class="icon" title="Home Page">
-				<div class="icon" onclick="goMainPage('<%=request.getContextPath()%>')"
+				<div class="icon"
+					onclick="location.href='<%=request.getContextPath()%>/index.jsp'"
 					style="background-image: url(<%=request.getContextPath()%>/resources/img/icon.png);"></div>
 			</div>
 			<button class="navbar-toggler" type="button"
@@ -98,7 +103,7 @@ ul.footer-text > li > a {
 				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 					style="-bs-scroll-height: 100px;">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="<%=request.getContextPath()%>/post/noticeBoard.do">공지사항</a></li>
+						aria-current="page" href="<%=request.getContextPath()%>/post/noticeBoard.do"">공지사항</a></li>
 
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -110,8 +115,7 @@ ul.footer-text > li > a {
 							<li><a class="dropdown-item" href="#">너성보</a></li>
 							<li><hr class="dropdown-divider"></li>
 							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/gganboo.do">깐부게시판</a></li>
-							<li><a class="dropdown-item" href="#">맛집게시판</a></li>
-							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/sikdang/list.do">식당리스트</a></li>
+							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/sikdang/list.do">맛집게시판</a></li>
 						</ul></li>
 				</ul>
 				<div class="d-flex">
@@ -120,12 +124,14 @@ ul.footer-text > li > a {
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#"
 							id="navbarScrollingDropdown" role="button"
-							data-bs-toggle="dropdown" aria-expanded="false" style="font-weight: bold;"> ${loginUser.user_id} </a>
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="font-weight: bold;"> ${loginUser.user_id} </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarScrollingDropdown">
 								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
 								<li><hr class="dropdown-divider"></li>
-								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/common/logout.do">로그아웃</a></li>
+								<li><a class="dropdown-item"
+									href="<%=request.getContextPath()%>/common/logout.do">로그아웃</a></li>
 							</ul></li>
 					</ul>
 				</div>

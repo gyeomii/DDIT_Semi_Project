@@ -3,6 +3,8 @@ package com.surt.dao;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -207,9 +209,21 @@ public class PostDAOImpl implements PostDAO {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
 			List<PostVO> allPopularPostList = session.selectList("Post-Mapper.selectAllPopularPostList");
-			for (PostVO postVO : allPopularPostList) {
-			}
 			return allPopularPostList;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (session != null)
+				session.close();
+		}
+	}
+	
+	@Override
+	public List<PostVO> selectAllNoticePostList() throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			List<PostVO> allNoticePostList = session.selectList("Post-Mapper.selectAllNoticePostList");
+			return allNoticePostList;
 		} catch (Exception e) {
 			throw e;
 		} finally {
@@ -219,18 +233,32 @@ public class PostDAOImpl implements PostDAO {
 	}
 
 	@Override
-	public List<PostVO> selectMemberPostList(int idx) throws SQLException {
+	public List<PostVO> selectAllMyPostList(int user_idx) throws SQLException {
 		SqlSession session = sqlSessionFactory.openSession();
 		try {
-			
-			List<PostVO> memberPostList = session.selectOne("Post-Mapper.selectMemberPostList", idx);
-			return memberPostList;
+			List<PostVO> myPostList = session.selectList("Post-Mapper.selectMyPostList",user_idx);
+			return myPostList;
 		} catch (Exception e) {
-			// 에러처리
 			throw e;
 		} finally {
 			if (session != null)
 				session.close();
 		}
 	}
+
+	@Override
+	public List<PostVO> selectAllFreePostList() throws SQLException {
+		SqlSession session = sqlSessionFactory.openSession();
+		try {
+			List<PostVO> allNoticePostList = session.selectList("Post-Mapper.selectFreePostList");
+			return allNoticePostList;
+		} catch (Exception e) {
+			throw e;
+		} finally {
+			if (session != null)
+				session.close();
+		}
+	}
+
+
 }

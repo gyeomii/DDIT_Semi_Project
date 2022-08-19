@@ -111,16 +111,39 @@ public class PostServiceImpl implements PostService {
 
 		return dataMap;
 	}
+	@Override
+	public Map<String, Object> getAllNoticePostList() throws Exception {
+		Map<String, Object> dataMap = null;
+		
+		List<PostVO> noticeList = postDAO.selectAllNoticePostList();
+		
+		dataMap = new HashMap<String, Object>();
+		dataMap.put("noticeList", noticeList);
+		
+		return dataMap;
+	}
 
 	@Override
-	public Map<String, Object> getMemberPostList(int idx) throws SQLException {
+	public Map<String, Object> getAllMyPostList(int user_idx) throws SQLException {
 		Map<String, Object> dataMap = null;
 
-		List<PostVO> postList = postDAO.selectMemberPostList(idx);
+		List<PostVO> myPostList = postDAO.selectAllMyPostList(user_idx);
 
 		dataMap = new HashMap<String, Object>();
-		dataMap.put("postList", postList);
+		dataMap.put("myPostList", myPostList);
 
+		return dataMap;
+	}
+
+	@Override
+	public Map<String, Object> getAllFreePostList() throws Exception {
+		Map<String, Object> dataMap = null;
+		
+		List<PostVO> freeList = postDAO.selectAllFreePostList();
+		
+		dataMap = new HashMap<String, Object>();
+		dataMap.put("freeList", freeList);
+		
 		return dataMap;
 	}
 

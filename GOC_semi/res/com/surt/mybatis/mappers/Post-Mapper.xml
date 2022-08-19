@@ -136,6 +136,29 @@
 		where post_id is not null
 		order by liked desc
 	</select>
+	<select id="selectAllNoticePostList" resultType="post">
+		select
+		*
+		from post
+		where category = 1
+		order by post_mod_date desc
+	</select>
+	
+	<select id="selectMyPostList" parameterType="int" resultType="post">
+  		select
+		*
+		from post
+		where user_idx = #{user_idx}
+		order by post_mod_date desc
+	</select>
+	
+		<select id="selectAllFreePostList" resultType="post">
+		select
+		*
+		from post
+		where category = 2
+		order by post_mod_date desc
+	</select>
 
 
 </mapper>

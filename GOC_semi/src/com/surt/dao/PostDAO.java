@@ -15,8 +15,6 @@ public interface PostDAO {
 
 	public void postInsert(PostVO post)throws SQLException ;
 	
-	List<PostVO> selectMemberPostList(int idx)throws SQLException;
-	
 	//자유 게시판  -- 카테고리 = 2
 	
 	List<PostVO> selectFreePostList(Criteria cri)throws SQLException;
@@ -38,6 +36,12 @@ public interface PostDAO {
 	void deletePost(int post_id) throws SQLException;
 	
 	List<PostVO> selectAllPopularPostList() throws SQLException;
+	List<PostVO> selectAllNoticePostList() throws SQLException;
+	
+	List<PostVO> selectAllMyPostList(int user_idx) throws SQLException;
+
+	List<PostVO> selectAllFreePostList() throws SQLException;
+
 
 	
 }

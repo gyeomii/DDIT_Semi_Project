@@ -278,9 +278,8 @@ ul.footer-text > li > a {
 					
 				<div class="row">
 					<div class="col-md-3 offset-md-9">
-						<div class="wirter_button_div" OnClick="location.href ='postForm.do'">
-							<button type="button" class="btn btn-outline-dark">
-							<a class="title_herf_path">글쓰기</a>
+						<div class="wirter_button_div" >
+							<button type="button" class="btn btn-outline-dark" OnClick="location.href ='postForm.do'">글쓰기
 							</button>
 						</div>
 					</div>

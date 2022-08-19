@@ -115,9 +115,9 @@
 
 						
 					<c:forEach items="${sikdangList }" var="sikdang">
-					positions.push({ content : '${sikdang.sikdangName }',
-									 latlng : new kakao.maps.LatLng(${sikdang.lat}, ${sikdang.lng })
-					})
+					positions.push({ content : '<a href="${sikdang.website}" target="_blank">${sikdang.sikdangName }</a>',
+						 latlng : new kakao.maps.LatLng(${sikdang.lat}, ${sikdang.lng })
+		});
 				</c:forEach>
 						
 						

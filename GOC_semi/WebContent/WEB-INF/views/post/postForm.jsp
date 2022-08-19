@@ -250,21 +250,23 @@
 				<div class="col-sm-9" id="writer_board">
 					<div class="row">
 						<!-- 메인 게시판 -->
+					<form method="post" action="freeInsert.do">
 						<div>
-							<div class="col-sm-11" id="writer_board_writer">글쓰기</div>
+							<input type="submit" class="col-sm-11" id="writer_board_writer" value="글쓰기">
 						</div>
 						<div class="row">
 							<div class="col-sm-2" id="writer_board_title_1">제목</div>
 							<div class="col-sm-9">
-								<input type="text" class="title_input">
+								<input type="text" class="title_input" name="title">
 							</div>
 						</div>
 						<div class="row" id="writer_board_post_board">
 							<div class="col-sm-2" id="writer_board_post">내용</div>
 							<div class="col-sm-9" id="writer_board_post_1">
-								<input type="text" class="post_input">
+								<textarea class="post_input" style="resize:none" name="content"></textarea>
 							</div>
 						</div>
+					</form>
 
 					</div>
 				</div>
@@ -301,6 +303,7 @@
 				</div>
 			</div>
 		</div>
+			<br>
 	</div>
 
 

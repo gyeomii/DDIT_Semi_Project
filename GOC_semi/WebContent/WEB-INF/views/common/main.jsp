@@ -47,7 +47,8 @@
 				<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 					style="-bs-scroll-height: 100px;">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="<%=request.getContextPath()%>/post/noticeBoard.do"">공지사항</a></li>
+						aria-current="page"
+						href="<%=request.getContextPath()%>/post/noticeBoard.do"">공지사항</a></li>
 
 					<li class="nav-item dropdown"><a
 						class="nav-link dropdown-toggle" href="#"
@@ -55,11 +56,14 @@
 						data-bs-toggle="dropdown" aria-expanded="false"> 게시판 </a>
 						<ul class="dropdown-menu"
 							aria-labelledby="navbarScrollingDropdown">
-							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/freeBoard.do">자유게시판</a></li>
+							<li><a class="dropdown-item"
+								href="<%=request.getContextPath()%>/post/freeBoard.do">자유게시판</a></li>
 							<li><a class="dropdown-item" href="#">너성보</a></li>
 							<li><hr class="dropdown-divider"></li>
-							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/post/gganboo.do">깐부게시판</a></li>
-							<li><a class="dropdown-item" href="<%=request.getContextPath()%>/sikdang/list.do">맛집게시판</a></li>
+							<li><a class="dropdown-item"
+								href="<%=request.getContextPath()%>/post/gganboo.do">깐부게시판</a></li>
+							<li><a class="dropdown-item"
+								href="<%=request.getContextPath()%>/sikdang/list.do">맛집게시판</a></li>
 						</ul></li>
 				</ul>
 				<div class="d-flex">
@@ -72,7 +76,8 @@
 							style="font-weight: bold;"> ${loginUser.user_id} </a>
 							<ul class="dropdown-menu"
 								aria-labelledby="navbarScrollingDropdown">
-								<li><a class="dropdown-item" href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
+								<li><a class="dropdown-item"
+									href="<%=request.getContextPath()%>/member/mypage.do">마이페이지</a></li>
 								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item"
 									href="<%=request.getContextPath()%>/common/logout.do">로그아웃</a></li>
@@ -83,7 +88,7 @@
 		</div>
 	</nav>
 	<div class="layout background-white"
-		style="min-width: 750px; height: 1524px;">
+		style="min-width: 750px; height: 100%;">
 		<br>
 		<div class="container">
 			<div class="row">
@@ -208,8 +213,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="layout">
-			<hr />
+		<div class="middleHrDiv">
+			<hr class="middleHr" />
 		</div>
 		<div class="container">
 			<div class="row">
@@ -233,12 +238,13 @@
 							</thead>
 							<tbody>
 								<!--공지사항 데이터로 수정 필요 -->
-								<c:forEach items="${noticePostList }" var="noticePosts" varStatus="status"
-									begin="0" end="4">
+								<c:forEach items="${noticePostList }" var="noticePosts"
+									varStatus="status" begin="0" end="4">
 									<tr>
 										<th class="borad-number" scope="row">${status.count}</th>
 										<td class="borad-auther">${noticePosts.nickname }</td>
-										<td class="borad-title"><a href="<%=request.getContextPath()%>/post/postContent.do?id=${noticePosts.post_id }">${noticePosts.title}</a></td>
+										<td class="borad-title"><a
+											href="<%=request.getContextPath()%>/post/postContent.do?id=${noticePosts.post_id }">${noticePosts.title}</a></td>
 										<td class="borad-time"><fmt:formatDate pattern="MM-dd"
 												value="${noticePosts.post_mod_date}" /></td>
 										<td class="borad-hit">${noticePosts.hit_count }</td>
@@ -249,8 +255,10 @@
 						</table>
 					</div>
 				</div>
-				<div class="col-sm-4 weather" style=""> 
-					<iframe width="100%" height="100%" src="https://forecast.io/embed/#lat=36.325029&lon=127.408951&name=대전 중구 오류동&color=#ffc261&font=arial&units=si" frameborder="0"></iframe>
+				<div class="col-sm-4 weather" style="">
+					<iframe width="100%" height="100%"
+						src="https://forecast.io/embed/#lat=36.325029&lon=127.408951&name=대전 중구 오류동&color=#ffc261&font=arial&units=si"
+						frameborder="0"></iframe>
 				</div>
 			</div>
 
@@ -279,9 +287,10 @@
 									<tr>
 										<th class="borad-number" scope="row">${status.count}</th>
 										<td class="borad-auther">${posts.nickname }</td>
-										<td class="borad-title"><a href="<%=request.getContextPath()%>/post/postContent.do?id=${posts.post_id }">${posts.title}</a></td>
-										<td class="borad-time sub">	<fmt:formatDate pattern="MM-dd" value="${posts.post_mod_date}"/>	
-										</td>
+										<td class="borad-title"><a
+											href="<%=request.getContextPath()%>/post/postContent.do?id=${posts.post_id }">${posts.title}</a></td>
+										<td class="borad-time sub"><fmt:formatDate
+												pattern="MM-dd" value="${posts.post_mod_date}" /></td>
 										<td class="borad-hit">${posts.hit_count }</td>
 										<td class="borad-liked">${posts.liked }</td>
 									</tr>
@@ -303,40 +312,46 @@
 		</div>
 		<div class="container">
 			<div class="main" style="min-width: 715px;">
-					<div class="card">
-						<div class="board">
-							<h3>
-								<a href="<%=request.getContextPath()%>/post/noticeBoard.do"">공지사항 </a>
-							</h3>
-							<c:forEach items="${noticePostList }" var="noticePosts" begin="1" end="5">
-								<a class="list"
-									href="<%=request.getContextPath()%>/post/postContent.do?id=${noticePosts.post_id }">
-									<time>
-										<fmt:formatDate pattern="MM-dd" value="${noticePosts.post_mod_date}" />
-									</time>
-									<p>${noticePosts.title}</p>
-									<hr>
-								</a>
-							</c:forEach>
-						</div>
+				<div class="card">
+					<div class="board">
+						<h3>
+							<a href="<%=request.getContextPath()%>/post/noticeBoard.do"">공지사항
+							</a>
+						</h3>
+						<c:forEach items="${noticePostList }" var="noticePosts" begin="0"
+							end="4">
+							<a class="list"
+								href="<%=request.getContextPath()%>/post/postContent.do?id=${noticePosts.post_id }">
+								<time>
+									<fmt:formatDate pattern="MM-dd"
+										value="${noticePosts.post_mod_date}" />
+								</time>
+								<p>${noticePosts.title}</p>
+								<hr>
+							</a>
+						</c:forEach>
 					</div>
-					<div class="card">
-						<div class="board">
-							<h3>
-								<a href="<%=request.getContextPath()%>/post/freeBoard.do"">자유게시판 </a>
-							</h3>
-							<c:forEach items="${freePostList }" var="freePosts" begin="1" end="5">
-								<a class="list"
-									href="<%=request.getContextPath()%>/post/postContent.do?id=${freePosts.post_id }">
-									<time>
-										<fmt:formatDate pattern="MM-dd" value="${freePosts.post_mod_date}" />
-									</time>
-									<p>${freePosts.title}</p>
-									<hr>
-								</a>
-							</c:forEach>
-						</div>
+				</div>
+				<div class="card">
+					<div class="board">
+						<h3>
+							<a href="<%=request.getContextPath()%>/post/freeBoard.do"">자유게시판
+							</a>
+						</h3>
+						<c:forEach items="${freePostList }" var="freePosts" begin="0"
+							end="4">
+							<a class="list"
+								href="<%=request.getContextPath()%>/post/postContent.do?id=${freePosts.post_id }">
+								<time>
+									<fmt:formatDate pattern="MM-dd"
+										value="${freePosts.post_mod_date}" />
+								</time>
+								<p>${freePosts.title}</p>
+								<hr>
+							</a>
+						</c:forEach>
 					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -457,9 +472,10 @@ function timeChange(e){
 			<div class="footer-fontcolor layout">
 				<div id="footer-list">
 					<ul class="footer-text">
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Support</a></li>
+						<li><a href="<%=request.getContextPath()%>/common/aboutUs.do">About
+								Us</a></li>
+						<li><a href="<%=request.getContextPath()%>/common/aboutUs.do">Contact</a></li>
+						<li><a href="<%=request.getContextPath()%>/common/aboutUs.do">Support</a></li>
 					</ul>
 				</div>
 				Copyright ⓒ SURT

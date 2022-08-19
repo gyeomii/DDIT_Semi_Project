@@ -32,11 +32,13 @@
 	</select>
 
 	<update id="postInsert" parameterType="post">
+		<selectKey order="BEFORE" keyProperty="post_id" resultType="int">
+				SELECT POST_IDX_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
 		insert into
 		post
-		(post_id,user_idx, title,
-		post_content,liked,hit_count,category,post_add_date)
-		values(#{post_id},#{user_idx},#{title},#{post_content},#{liked},#{hit_count},#{category},sysdate)
+		(post_id,user_idx, title, post_content,liked,hit_count,category,post_add_date, post_mod_date,nickname)
+		values(#{post_id},#{user_idx},#{title},#{post_content},#{liked},#{hit_count},#{category},sysdate, sysdate,#{nickname})
 	</update>
 
 	<select id="selectNoticePostList" resultType="post">

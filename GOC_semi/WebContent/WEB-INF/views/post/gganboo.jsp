@@ -154,11 +154,11 @@ ul.footer-text > li > a {
 							</a>
 						</div>
 						<!-- Post input -->
-						<form class="w-100" method="post" action="postinsert.do">
+						<form class="w-100" method="post" action="gganbooInsert.do">
 						
 							<input class="form-control pe-4 border-0" rows="2"
-								data-autoresize="" placeholder="오늘 뭐먹지~" id="content" required="required"></input>
-								<button style="display: none;" type="submit" class="btn btn-primary btn-block btn-flat">로그인</button>
+								data-autoresize="" placeholder="오늘 뭐먹지~" name="content" required="required"></input>
+								<button style="display: none;" type="submit" class="btn btn-primary btn-block btn-flat"></button>
 						</form>
 					</div>
 					<!-- Share feed toolbar START -->

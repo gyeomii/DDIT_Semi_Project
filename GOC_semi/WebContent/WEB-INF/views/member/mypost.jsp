@@ -86,9 +86,7 @@
 	<div class="container">
 		<div class="container-fluid" style="margin-left: 10px">
 			<div class="row" style="display: flex; padding-bottom: 20px;">
-				<div style="font-weight: bold;" class="rounded-circle manPicture"
-					data-id="${loginUser.user_id }"
-					style="margin-top: 15px; border: solid; width: 100px; height: 100px"></div>
+				<div class="rounded-circle manPicture"  data-id="${loginUser.user_id }" style="margin-top : 15px; border : solid; width:100px; height:100px" ></div>
 				<div class="col-sm-2" id="account_area">
 					<p>${sessionScope.loginUser.nickname}</p>
 					<div>
@@ -201,7 +199,7 @@
 	<script>
 	window.onload=function(){
 		MemberPictureThumb("<%=request.getContextPath()%>");
-		}
+	}
 	</script>
 
 	<script src="<%=request.getContextPath()%>/resources/js/member.js"></script>
